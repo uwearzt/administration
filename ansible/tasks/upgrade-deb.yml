@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------
+---
+- name: upgrade Debian/Raspbian
+  hosts: debian:raspbian
+
+  tasks:
+    - name: aptitude upgrade
+      become: true
+      apt: 
+        upgrade: yes 
+        autoremove: yes

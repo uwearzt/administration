@@ -1,0 +1,23 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------<Paste>
+---    
+- name: apt install can-utils
+  apt: name=can-utils update_cache=yes
+
+- name: copy can0 to rpi
+  copy: src=files/can0 dest=/etc/network/interfaces.d
+
+- name: enable spi
+  lineinfile: 
+    path: /boot/config.txt
+    state: present
+    insertafter: #dtparam=spi=on
+    line: dtparam=spi=on
+- name: enable mcp2515 overlay
+  lineinfile: 
+    path: /boot/config.txt
+    state: present
+    insertafter: dtparam=spi=on
+    line: dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25 

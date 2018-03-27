@@ -1,0 +1,11 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------
+---
+- name: rpi desktop for development
+  hosts: rpidesktop
+  become: true
+  roles:
+    - base
+    - rpi-can

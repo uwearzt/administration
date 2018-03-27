@@ -1,0 +1,59 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------
+---
+# needed for building some of the cargo dependencies
+- name: brew install
+  homebrew: name=curl state=present update_homebrew=yes
+  when: ansible_os_family == "Darwin"
+
+- name: apt install
+  become: true
+  apt: name={{item}} update_cache=yes
+  with_items:
+    - curl
+    - gcc
+    - liblzma-dev
+    - dpkg
+    - pkg-config
+    - make
+    - libssl-dev
+    - cmake
+    - zlib1g-dev
+    - gcc-arm-linux-gnueabihf
+  when: ansible_os_family == "Debian" and ansible_distribution_major_version|int >= 9
+
+# install rust
+- name: download install script
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/rustinstall.sh
+    mode: 0775
+
+- name: run install script
+  shell: /tmp/rustinstall.sh -y
+
+- name: install toolchains
+  shell: rustup install {{item}}
+  with_items:
+    - nightly
+- name: default toolchain nightly
+  shell: rustup default nightly
+- name: install targets
+  shell: rustup target add {{item}}
+  with_items:
+    - arm-unknown-linux-gnueabihf
+
+# tooling
+- name: install cargo packages
+  command: cargo install --force {{item}}
+  with_items:
+    - cargo-deb
+    - cargo-expand
+    - cargo-outdated
+    - cargo-config
+    - cargo-ctags
+    - rustfmt-nightly
+    - clippy
+  ignore_errors: yes

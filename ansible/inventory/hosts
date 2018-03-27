@@ -1,0 +1,48 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------
+
+# ----------------------------------------------------
+# hosts by os and purpose
+# ----------------------------------------------------
+[server-macos]
+arche
+
+[server-debian]
+hetzner01
+
+[devel-macos]
+ganymed
+isonoe
+
+[devel-raspbian]
+rpidesktop
+# rpitest
+
+# ----------------------------------------------------
+# hosts by purpose
+# ----------------------------------------------------
+[devel:children]
+devel-macos
+devel-raspbian
+
+[server:children]
+server-macos
+server-debian
+
+[web]
+uwe-arzt.de
+
+# ----------------------------------------------------
+# grouped by os
+# ----------------------------------------------------
+[macos:children]
+server-macos
+devel-macos
+
+[debian:children]
+server-debian
+
+[raspbian:children]
+devel-raspbian

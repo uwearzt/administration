@@ -1,0 +1,22 @@
+# User settings
+[user]
+	name = Uwe Arzt
+	email = mail@uwe-arzt.de
+[mergetool]
+	keepBackup = true
+[push]
+	default = simple
+[grep]
+  linenumber = true 
+[color]
+	ui = auto
+[core]
+	editor = code --wait
+
+# Security settings
+[transfer]
+  fsckobjects = true
+[fetch]
+  fsckobjects = true
+[receive]
+  fsckObjects = true
