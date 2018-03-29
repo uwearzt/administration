@@ -1,0 +1,70 @@
+# ------------------------------------------------------------------------------
+# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
+# under BSD License, see https://uwe-arzt.de/bsd-license
+# ------------------------------------------------------------------------------
+---
+
+- name: brew install
+  block:
+  - homebrew:
+      name: "{{item}}"
+      state: present 
+      update_homebrew: yes
+    with_items:
+      - curl
+      - rust
+
+  - homebrew_tap:
+      name: caskroom/cask
+  
+  - homebrew_cask:
+      name: "{{item}}"
+      state: present
+    with_items:
+      - 1password-cli
+  when: ansible_os_family == "Darwin"
+
+# ------------------------------------------------------------------------------
+
+- name: apt install
+  become: true
+  apt: 
+    name: "{{item}}"
+    update_cache: yes
+  with_items:
+    - curl
+    - gcc
+    - liblzma-dev
+    - dpkg
+    - pkg-config
+    - make
+    - libssl-dev
+    - cmake
+    - zlib1g-dev
+  when: ansible_os_family == "Debian"
+
+# ------------------------------------------------------------------------------
+
+# - name: install toolchains
+#   shell: rustup install {{item}}
+#   with_items:
+#     - nightly
+# - name: default toolchain nightly
+#   shell: rustup default nightly
+# - name: install targets
+#   shell: rustup target add {{item}}
+#   with_items:
+#     - arm-unknown-linux-gnueabihf
+
+# # tooling
+# - name: install cargo packages
+#   command: cargo install --force {{item}}
+#   with_items:
+#     - cargo-deb
+#     - cargo-expand
+#     - cargo-outdated
+#     - cargo-config
+#     - cargo-ctags
+#     - rustfmt-nightly
+#     - clippy
+#   ignore_errors: yes

@@ -12,6 +12,7 @@
         - htop
         - fish
         - git
+        - apt-transport-https
 
     - user:
         name: uwe

@@ -3,9 +3,4 @@
 # under BSD License, see https://uwe-arzt.de/bsd-license
 # ------------------------------------------------------------------------------
 ---
-- name: rpi desktop for development
-  hosts: rpidesktop
-  become: true
-  roles:
-    - base
-    - rpi-can
+dependencies: []

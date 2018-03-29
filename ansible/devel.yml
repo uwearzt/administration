@@ -3,8 +3,17 @@
 # under BSD License, see https://uwe-arzt.de/bsd-license
 # ------------------------------------------------------------------------------
 ---
-- name: development hosts
-  hosts: devel
+- name: mac devel
+  hosts: devel-macos
   roles:
     - base
-    # - rust
+    - docker
+    - devel
+
+- name: raspbian devel
+  hosts: devel-raspbian
+  become: true
+  roles:
+    - base
+    - rpi-can
+    - devel

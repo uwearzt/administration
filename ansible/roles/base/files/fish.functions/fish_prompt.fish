@@ -14,6 +14,7 @@ function fish_prompt
   set -l directory_color  (set_color brown)
   set -l repository_color (set_color green)
 
+  echo -n -s "[" (hostname -s) "]"
   echo -n -s $fish
 
   if dir_in_git_repo $pwd
