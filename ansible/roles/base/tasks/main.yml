@@ -1,7 +1,19 @@
 # ------------------------------------------------------------------------------
-# Copyright 2017-2018 by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
-# under BSD License, see https://uwe-arzt.de/bsd-license
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and 
+# limitations under the License.
 # ------------------------------------------------------------------------------
+
 ---    
 - name: apt install base packages 
   block:
@@ -13,6 +25,7 @@
         - fish
         - git
         - apt-transport-https
+        - neovim
 
     - user:
         name: uwe
@@ -35,6 +48,7 @@
         - htop
         - fish
         - git
+        - neovim
 
     - lineinfile:
         path: /etc/shells
@@ -53,16 +67,16 @@
 - name: copy config.fish
   copy: 
     src: files/config.fish 
-    dest: ~/.config/fish/
+    dest: .config/fish/
     backup: yes
 - name: copy fish functions
   copy: 
     src: files/fish.functions/
-    dest: ~/.config/fish/functions/
+    dest: .config/fish/functions/
     backup: yes
 
 - name: copy .gitconfig
   copy: 
     src: files/gitconfig
-    dest: ~/.gitconfig
+    dest: .gitconfig
     backup: yes

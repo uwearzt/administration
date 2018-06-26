@@ -2,22 +2,22 @@
 |--------------|---------|
 | io           | Firewall (Fritzbox 7490) |
 | europa       | |
-| ganymed      | Notebook Uwe (macOS 10.13) |
-| kallisto     | Notebook Uwe VM (Windows 10) |
+| ganymed      | Notebook Uwe (macOS) |
+| kallisto     | Notebook Uwe VM (Windows) |
 | amalthea     | |
 | himalia      | |
-| elara        | Notebook Kirsten Home (macOS 10.13 |
+| elara        | Notebook Kirsten Home (macOS) |
 | pasiphae     | |
 | sinope       | |
 | lysithe      | |
 | carme        | |
-| ananke       | Notebook Kirsten Work (Windows 10) |
+| ananke       | Notebook Kirsten Work (Windows) |
 | leda         | Raspberry Pi Workplace (Raspbian) |
 | thebe        | |
 | adrastea     | |
-| metis        | |
+| metis        | iMac Workplace () |
 | callirrhoe   | |
-| themisto     | Raspberry Pi Workplace (Raspbian Lite) |
+| themisto     | |
 | megaclite    | |
 | taygete      | |
 | chaldene     | |
@@ -25,7 +25,7 @@
 | kalyke       | |
 | iocaste      | |
 | erinome      | |
-| isonoe       | Mac Mini Workplace (macOS 10.13) |
+| isonoe       | Mac Mini Workplace (macOS) |
 | praxidike    | |
 | autonoe      | |
 | thyone       | |
@@ -42,7 +42,7 @@
 | mneme        | humanoid robot () |
 | aoede        | |
 | thelxinoe    | |
-| arche        | Mac Mini Server (macOS 10.13) |
+| arche        | Mac Mini Server (macOS) |
 | kallichore   | |
 | helike       | |
 | carpo        | |

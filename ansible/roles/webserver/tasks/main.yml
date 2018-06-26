@@ -1,0 +1,46 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and 
+# limitations under the License.
+# ------------------------------------------------------------------------------
+---    
+- name: apt install openlitespeed
+  block:
+    - get_url:
+        url: http://rpms.litespeedtech.com/debian/lst_debian_repo.gpg
+        dest: /etc/apt/trusted.gpg.d/
+    - get_url:
+        url: http://rpms.litespeedtech.com/debian/lst_repo.gpg
+        dest: /etc/apt/trusted.gpg.d/
+    - apt_repository:
+        filename: openlitespeed
+        repo: deb http://rpms.litespeedtech.com/debian/ stretch main
+        state: present
+    - apt: name={{item}} state=present update_cache=yes
+      with_items:
+        - openlitespeed
+   # - copy: 
+   #     src: "{{item}}"
+   #     dest: /etc/nginx/sites-available
+   #     backup: yes
+   #   with_fileglob: files/site-*
+   #   notify: restart nginx
+   # - file:
+   #     src: "/etc/nginx/sites-available/{{ item | basename }}"
+   #     dest: "/etc/nginx/sites-enabled/{{ item | basename }}"
+   #     state: link
+   #   with_fileglob: files/site-*
+   #   notify: restart nginx
+
+  when: ansible_os_family == "Debian"
+  become: true

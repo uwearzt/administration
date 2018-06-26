@@ -13,6 +13,28 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
-  
 ---
-dependencies: []
+- name: openvpnserver
+  hosts: arche:hetzner01
+
+  tasks:
+
+  - name: apt install openvpn server
+    block:
+      - apt: name={{item}} state=present update_cache=yes
+        with_items:
+          - openvpn
+  
+    when: ansible_os_family == "Debian"
+    become: true
+
+  - name: brew install openvpn server
+    block:
+      - homebrew: 
+          name: "{{item}}" 
+          state: present
+          update_homebrew: yes
+        with_items:
+          - openvpn
+
+    when: ansible_os_family == "Darwin"

@@ -4,7 +4,7 @@
 |---------------------|--------------------|------|
 | Internal LAN        |   192.168.20.0/24  |      |
 | Guest LAN           |   192.168.22.0/24  |      |
-| Home Automation LAN |   192.168.22.0/24  |      |
+| Home Automation LAN |   192.168.24.0/24  |      |
 | Kirsten Praxis LAN  |   192.168.30.0/24  |      |
 
 # VLAN / SSID
@@ -20,7 +20,7 @@
 | **Name**             | **IPv4**        | **IPv6**            |
 |----------------------|
 | io                   |    192.168.20.1 |
-| arche                |                 |
+| arche                |    .10             |
 | isonoe               |
 | switch               |
 | apeg                 |
@@ -38,6 +38,8 @@
 | mneme                |
 | remy                 |
 | kale                 |
+isonoe .12
+leda .14
 
 # Domains
 

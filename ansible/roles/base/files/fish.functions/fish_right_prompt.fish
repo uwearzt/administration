@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
-  
----
-dependencies: []
+
+function fish_right_prompt
+    date '+%H:%M:%S'
+end

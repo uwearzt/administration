@@ -13,6 +13,17 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
-  
 ---
-dependencies: []
+- name: check if reboot is required
+  hosts: debian:raspbian
+
+  tasks:
+    - name: check if reboot-required exists
+      stat:
+        path: /var/run/reboot-required
+      register: rebootrequired
+
+    - name: 
+      debug:
+        msg: "{{ inventory_hostname }} needs a reboot"
+      when: rebootrequired.stat.exists == True 
