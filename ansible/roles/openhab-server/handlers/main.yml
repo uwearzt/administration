@@ -13,9 +13,5 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
----
-- name: server
-  hosts: server
-  roles:
-    - base
-    - docker
+
+- import_tasks: handlers/main.yml

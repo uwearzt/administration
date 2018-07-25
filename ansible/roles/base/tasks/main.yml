@@ -15,23 +15,25 @@
 # ------------------------------------------------------------------------------
 
 ---    
-- name: apt install base packages 
+- name: dnf install base packages 
   block:
-    - apt: name={{item}} state=present update_cache=yes
+    - dnf: name={{item}} state=present 
       with_items:
         - mosh
         - lsof
         - htop
         - fish
         - git
-        - apt-transport-https
         - neovim
-
+        - python3
+        - python3-libselinux
+        - python3-firewall
+        - dnf-plugin-tracer
     - user:
         name: uwe
         shell: /usr/bin/fish
 
-  when: ansible_os_family == "Debian"
+  when: ansible_os_family == "RedHat"
   become: true
 
 # ------------------------------------------------------------------------------

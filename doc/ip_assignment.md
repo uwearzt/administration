@@ -17,36 +17,22 @@
 
 # Internal Network
 
-| **Name**             | **IPv4**        | **IPv6**            |
-|----------------------|
-| io                   |    192.168.20.1 |
-| arche                |    .10             |
-| isonoe               |
-| switch               |
-| apeg                 |
-| apog                 |
-| hpcm1415             |
-| knxindoor            |
-| knxoutdoor           |
-| doorcam              |
-| wohnzimmer           |
-| schlafzimmer         |
-| gaestezimmer         |
-| badezimmer           |
-| buerouwe             |
-| buerokirsten         |
-| mneme                |
-| remy                 |
-| kale                 |
-isonoe .12
-leda .14
+| **Name**             | **IP** |
+|----------------------|--------|
+| io                   |     .1 |
+| arche                |    .10 |
+| isonoe               |    .12 |
+| leda                 |    .14 |
+| testserver           |    .16 |
 
 # Domains
 
-| **Name**         | **IPv4**    | **IPv6**            |
-|------------------|
-| uwe-arzt.de      |
-| ganymed-it.de    |
-| robots.de        |
-| kirsten-klomp.de |
-| lnk-to.me        |
+| **Name**                            |
+|-------------------------------------|
+| uwe-arzt.de                         |
+| uwearzt.de                          |
+| ganymed-it.de                       |
+| robots.de                           |
+| lnk-to.me                           |
+| kirsten-klomp.de                    |
+| psychologische-psychotherapeutin.de |

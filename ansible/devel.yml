@@ -18,13 +18,10 @@
   hosts: devel-macos
   roles:
     - base
-    - docker
     - devel
 
-- name: raspbian devel
-  hosts: devel-raspbian
-  become: true
+- name: fedora devel
+  hosts: devel-fedora
   roles:
     - base
-    - rpi-can
     - devel

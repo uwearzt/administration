@@ -13,17 +13,9 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
----
-- name: check if reboot is required
-  hosts: debian:raspbian
+
+- name: restart firewalld
+  service:
+    name=firewalld
+    state=restarted
   become: true
-
-  tasks:
-    - name: check if reboot-required exists
-      stat:
-        path: /var/run/reboot-required
-      register: rebootrequired
-
-    - name: reboot
-      shell: /sbin/shutdown -r now
-      when: rebootrequired.stat.exists == True 

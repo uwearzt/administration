@@ -2,20 +2,20 @@
 |--------------|---------|
 | io           | Firewall (Fritzbox 7490) |
 | europa       | |
-| ganymed      | Notebook Uwe (macOS) |
-| kallisto     | Notebook Uwe VM (Windows) |
+| ganymed      | Notebook (macOS) |
+| kallisto     | VM (Windows) |
 | amalthea     | |
 | himalia      | |
 | elara        | Notebook Kirsten Home (macOS) |
 | pasiphae     | |
-| sinope       | |
+| sinope       | VM (Fedora)|
 | lysithe      | |
 | carme        | |
 | ananke       | Notebook Kirsten Work (Windows) |
-| leda         | Raspberry Pi Workplace (Raspbian) |
+| leda         | Raspberry Pi (Fedora) |
 | thebe        | |
 | adrastea     | |
-| metis        | iMac Workplace () |
+| metis        | iMac Workplace (macOS) |
 | callirrhoe   | |
 | themisto     | |
 | megaclite    | |

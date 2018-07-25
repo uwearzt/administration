@@ -14,8 +14,4 @@
 # limitations under the License.
 # ------------------------------------------------------------------------------
 
-# - name: restart nginx
-#  service:
-#    name=nginx
-#    state=restarted
-#  become: true
+- import_tasks: handlers/main.yml

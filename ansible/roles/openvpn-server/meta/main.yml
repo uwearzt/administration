@@ -13,13 +13,6 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
----
-- name: upgrade Debian/Raspbian
-  hosts: debian:raspbian
 
-  tasks:
-    - name: aptitude upgrade
-      become: true
-      apt: 
-        upgrade: yes 
-        autoremove: yes
+---
+dependencies: []

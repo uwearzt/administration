@@ -38,45 +38,26 @@
 
 # ------------------------------------------------------------------------------
 
-- name: apt install
+- name: dnf install
   become: true
-  apt: 
+  dnf: 
     name: "{{item}}"
-    update_cache: yes
   with_items:
     - curl
-    - gcc
-    - liblzma-dev
-    - dpkg
-    - pkg-config
-    - make
-    - libssl-dev
-    - cmake
-    - zlib1g-dev
-  when: ansible_os_family == "Debian"
+    - rust
+    - git
+    - cargo
+  when: ansible_os_family == "RedHat"
 
 # ------------------------------------------------------------------------------
 
-# - name: install toolchains
-#   shell: rustup install {{item}}
-#   with_items:
-#     - nightly
-# - name: default toolchain nightly
-#   shell: rustup default nightly
-# - name: install targets
-#   shell: rustup target add {{item}}
-#   with_items:
-#     - arm-unknown-linux-gnueabihf
-
-# # tooling
-# - name: install cargo packages
-#   command: cargo install --force {{item}}
-#   with_items:
-#     - cargo-deb
-#     - cargo-expand
-#     - cargo-outdated
-#     - cargo-config
-#     - cargo-ctags
-#     - rustfmt-nightly
-#     - clippy
-#   ignore_errors: yes
+- name: dnf install raspberry
+  become: true
+  dnf: 
+    name: "{{item}}"
+  with_items:
+    - i2c-tools
+    - libi2c
+    - libi2c-devel
+  when: ansible_os_family == "RedHat" and
+        ansible_system_vendor == "raspberrypi"

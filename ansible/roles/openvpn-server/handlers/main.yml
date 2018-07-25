@@ -14,34 +14,4 @@
 # limitations under the License.
 # ------------------------------------------------------------------------------
 
----    
-
-- name: install docker
-  block:
-    - apt_key:
-        keyserver: hkp://p80.pool.sks-keyservers.net:80
-        id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
-
-    - apt_repository:
-        repo: deb http://download.docker.com/linux/debian jessie stable
-        state: present
-
-    - apt: name={{item}} state=latest update_cache=yes
-      with_items:
-        - docker-ce
-
-  when: ansible_distribution == 'Debian'
-  become: true
-
-# ------------------------------------------------------------------------------
-
-- name: install docker
-  block:
-  # - homebrew_tap:
-  #    name: caskroom/cask
-  #    state: present
-  
-  - homebrew_cask:
-      name: docker
-      state: present
-  when: ansible_os_family == "Darwin"
+- import_tasks: handlers/main.yml

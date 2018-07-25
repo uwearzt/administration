@@ -13,25 +13,36 @@
 # See the License for the specific language governing permissions and 
 # limitations under the License.
 # ------------------------------------------------------------------------------
+
 ---    
-- name: install nginx
+- name: dnf install openhab
   block:
-    - dnf: name={{item}} state=present
+    - yum_repository:
+        name: openhab
+        description: openHAB
+        baseurl: https://dl.bintray.com/openhab/rpm-repo2/stable
+        gpgcheck: true
+        gpgkey: https://bintray.com/user/downloadSubjectPublicKey?username=openhab
+    - dnf: name={{item}} state=present 
       with_items:
-        - nginx
-    - service:
-        name: nginx
-        enabled: yes
-        state: started
+        - java-1.8.0-openjdk-headless
+        - openhab2
+        - openhab2-addons
+
+    # as long as IPv4 is necessary
+    # EXTRA_JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
+    # /etc/default/openhab2 
+
+    # testing only
     - firewalld:
         zone: public
-        service: http
+        port: 8080/tcp
         permanent: true
         state: enabled
       notify: restart firewalld
     - firewalld:
         zone: public
-        service: https
+        port: 8443/tcp
         permanent: true
         state: enabled
       notify: restart firewalld

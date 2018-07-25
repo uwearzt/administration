@@ -20,15 +20,16 @@
 [server-macos]
 arche
 
-[server-debian]
+[server-fedora]
 hetzner01
-uarzt-deb9-01
+testserver
 
 [devel-macos]
 ganymed
 isonoe
 
-[devel-raspbian]
+[devel-fedora]
+sinope
 leda
 
 # ----------------------------------------------------
@@ -36,11 +37,11 @@ leda
 # ----------------------------------------------------
 [devel:children]
 devel-macos
-devel-raspbian
+devel-fedora
 
 [server:children]
 server-macos
-server-debian
+server-fedora
 
 [web]
 uwe-arzt.de
@@ -52,8 +53,12 @@ uwe-arzt.de
 server-macos
 devel-macos
 
-[debian:children]
-server-debian
+[fedora:children]
+server-fedora
+devel-fedora
 
-[raspbian:children]
-devel-raspbian
+# ----------------------------------------------------
+# Use python3 on Fedora
+# ----------------------------------------------------
+[fedora:vars]
+ansible_python_interpreter=/usr/bin/python3 
