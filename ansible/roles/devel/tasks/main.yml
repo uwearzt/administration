@@ -24,6 +24,7 @@
       update_homebrew: yes
     with_items:
       - curl
+      - mosh
 
   # - homebrew_tap:
   #    name: caskroom/cask
@@ -44,9 +45,21 @@
     name: "{{item}}"
   with_items:
     - curl
+    - mosh
     - rust
     - git
     - cargo
+  when: ansible_os_family == "RedHat"
+
+# ------------------------------------------------------------------------------
+- name: add mosh in firewall
+  become: true
+  firewalld:
+    zone: public
+    service: mosh
+    permanent: true
+    state: enabled
+  notify: restart firewalld
   when: ansible_os_family == "RedHat"
 
 # ------------------------------------------------------------------------------

@@ -19,7 +19,6 @@
   block:
     - dnf: name={{item}} state=present 
       with_items:
-        - mosh
         - lsof
         - htop
         - fish
@@ -29,6 +28,7 @@
         - python3-libselinux
         - python3-firewall
         - dnf-plugin-tracer
+        - rsync
     - user:
         name: uwe
         shell: /usr/bin/fish
@@ -45,12 +45,12 @@
         state: present
         update_homebrew: yes
       with_items:
-        - mosh
         - lsof
         - htop
         - fish
         - git
         - neovim
+        - rsync
 
     - lineinfile:
         path: /etc/shells
