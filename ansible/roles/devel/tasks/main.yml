@@ -46,7 +46,6 @@
   with_items:
     - curl
     - mosh
-    - rust
     - git
     - cargo
   when: ansible_os_family == "RedHat"

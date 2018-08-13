@@ -29,23 +29,70 @@
         - openhab2
         - openhab2-addons
 
-    # as long as IPv4 is necessary
-    # EXTRA_JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
-    # /etc/default/openhab2 
+    # config files
+    - copy:
+        src: files/items/haus.items
+        dest: /etc/openhab2/items/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
+    - copy:
+        src: files/sitemaps/haus.sitemap
+        dest: /etc/openhab2/sitemaps/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
+    - copy:
+        src: files/things/haus.things
+        dest: /etc/openhab2/things/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
+    - copy:
+        src: files/services/homekit.cfg
+        dest: /etc/openhab2/services/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
+    - copy:
+        src: files/services/addons.cfg
+        dest: /etc/openhab2/services/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
+    - copy:
+        src: files/services/runtime.cfg
+        dest: /etc/openhab2/services/
+        owner: openhab
+        group: openhab
+      notify: restart openhab2
 
-    # testing only
-    - firewalld:
-        zone: public
-        port: 8080/tcp
-        permanent: true
-        state: enabled
-      notify: restart firewalld
+    # https gui
     - firewalld:
         zone: public
         port: 8443/tcp
         permanent: true
         state: enabled
       notify: restart firewalld
+    # knx multicast
+    - firewalld:
+        zone: public
+        port: 3671/udp
+        permanent: true
+        state: enabled
+      notify: restart firewalld
+    # homekit
+    - firewalld:
+        zone: public
+        port: 9123/tcp
+        permanent: true
+        state: enabled
+      notify: restart firewalld
+
+    - service:
+        name: openhab2
+        enabled: yes
+        state: started
 
   when: ansible_os_family == "RedHat"
   become: true

@@ -1,0 +1,85 @@
+// ------------------------------------------------------------------------------ 
+// Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and 
+// limitations under the License.
+// ------------------------------------------------------------------------------
+
+Bridge knx:ip:bridge [ 
+    type="ROUTER", 
+    readingPause=50, 
+    responseTimeout=10, 
+    readRetriesLimit=3, 
+    autoReconnectPeriod=1,
+    localSourceAddr="5.5.5"
+] {
+    Thing device generic [
+    ] {
+        // eg
+        Type switch        : licht_flur                   "Light"       [ ga="0/0/10" ]
+
+        Type switch        : licht_treppe_stufen          "Light"       [ ga="0/0/20" ]
+        Type switch        : licht_treppe_wand            "Light"       [ ga="0/0/21" ]
+
+        Type dimmer        : licht_kueche_decke           "Dimmer"      [ switch="0/0/30", increaseDecrease="0/0/32" ]
+        Type switch        : licht_kueche_abzugshaube     "Light"       [ ga="0/0/31" ]
+
+        Type switch        : licht_kueche_esszimmer       "Light"       [ ga="0/0/40" ]
+
+        Type dimmer        : licht_wohnzimmer_hinten      "Dimmer"      [ switch="0/0/50", increaseDecrease="0/0/52" ]
+        Type dimmer        : licht_wohnzimmer_vorne       "Dimmer"      [ switch="0/0/51", increaseDecrease="0/0/53" ]
+
+        Type switch        : licht_voratsraum             "Light"       [ ga="0/0/60" ]
+
+        Type switch        : licht_gaestezimmer           "Light"       [ ga="0/0/70" ]
+
+        Type switch        : licht_gaestebad_decke        "Light"       [ ga="0/0/80" ]
+        Type switch        : licht_gaestebad_waschbecken  "Light"       [ ga="0/0/81" ]
+
+        // og
+        Type switch        : licht_bad_decke              "Light"       [ ga="0/1/20" ]
+        Type switch        : licht_bad_wand               "Light"       [ ga="0/1/21" ]
+        Type switch        : licht_bad_spiegel            "Light"       [ ga="0/1/22" ]
+        Type switch        : licht_bad_badewanne          "Light"       [ ga="0/1/23" ]
+
+        Type switch        : licht_buero_flur             "Light"       [ ga="0/1/10" ]
+
+        Type switch        : licht_buero_uwe              "Light"       [ ga="0/1/30" ]
+        Type switch        : licht_buero_kirsten          "Light"       [ ga="0/1/40" ]
+
+        Type dimmer        : licht_schlafzimmer_decke     "Dimmer"      [ switch="0/1/50", increaseDecrease="0/1/52" ]
+        Type dimmer        : licht_schlafzimmer_wand      "Dimmer"      [ switch="0/1/51", increaseDecrease="0/1/53" ]
+
+        Type switch        : licht_ankleide               "Light"       [ ga="0/1/60" ]
+        Type switch        : licht_technikraum            "Light"       [ ga="0/3/10" ]
+        Type switch        : licht_serverraum             "Light"       [ ga="0/1/70" ]
+
+        // garten
+        // Type switch        : licht_gartenhaus             "Light"       [ ga="0/0/0" ]
+        // Type switch        : licht_wasserschale           "Light"       [ ga="0/0/0" ]
+        // Type switch        : pumpe_wasserschale           "Switch"      [ ga="0/0/0" ]
+
+        // rollershutter
+        Type rollershutter : jalousie_wohnzimmer1          "Shade"      [ upDown="1/1/20+1/1/21", stopMove="1/1/20+1/1/21" ]
+        Type rollershutter : jalousie_wohnzimmer2          "Shade"      [ upDown="1/1/22+1/1/23", stopMove="1/1/22+1/1/23" ]
+        Type rollershutter : jalousie_wohnzimmer3          "Shade"      [ upDown="1/1/24+1/1/25", stopMove="1/1/24+1/1/25" ]
+        Type rollershutter : jalousie_esszimmer            "Shade"      [ upDown="1/1/10+1/1/11", stopMove="1/1/10+1/1/11" ]
+        Type rollershutter : jalousie_treppe               "Shade"      [ upDown="1/1/30+1/1/31", stopMove="1/1/30+1/1/31" ]
+        Type rollershutter : jalousie_gaestebad            "Shade"      [ upDown="1/1/40+1/1/41", stopMove="1/1/40+1/1/41" ]
+
+        Type rollershutter : jalousie_schlafzimmer         "Shade"      [ upDown="1/1/50+1/1/51", stopMove="1/1/50+1/1/51" ]
+        Type rollershutter : jalousie_ankleide             "Shade"      [ upDown="1/1/60+1/1/61", stopMove="1/1/60+1/1/61" ]
+
+        Type rollershutter : rolladen_treppe               "Shade"      [ upDown="1/0/10+1/0/11", stopMove="1/0/10+1/0/11" ]
+        Type rollershutter : rolladen_serverraum           "Shade"      [ upDown="1/0/20+1/0/21", stopMove="1/0/20+1/0/21" ]
+    }
+}

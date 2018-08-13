@@ -20,14 +20,14 @@
       with_items:
         - openvpn
         - stunnel
-    - service:
-        name: openvpn-server
-        enabled: yes
-        state: started
-    - service:
-        name: stunnel
-        enabled: yes
-        state: started
+    #- service:
+    #    name: openvpn-server
+    #    enabled: yes
+    #    state: started
+    #- service:
+    #    name: stunnel
+    #    enabled: yes
+    #    state: started
     - firewalld:
         zone: public
         service: openvpn
