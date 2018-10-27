@@ -1,4 +1,6 @@
-# Networks
+# Network settings
+
+## IP ranges
 
 | Usage               | Network/Mask IPv4  | IPv6 |
 |---------------------|--------------------|------|
@@ -7,7 +9,7 @@
 | Home Automation LAN |   192.168.24.0/24  |      |
 | Kirsten Praxis LAN  |   192.168.30.0/24  |      |
 
-# VLAN / SSID
+## VLAN / SSID
 
 | ID  | Usage           | SSID 5 GHz / 2.4 GHz                   |
 |-----|-----------------|----------------------------------------|
@@ -15,17 +17,18 @@
 |  40 | Guest LAN       | guest / guest_legacy                   |
 |  60 | Home Automation | homeautomation / homeautomation_legacy |
 
-# Internal Network
+## Internal Network
 
 | **Name**             | **IP** |
 |----------------------|--------|
-| io                   |     .1 |
+| io                   |     .2 |
 | arche                |    .10 |
 | isonoe               |    .12 |
 | leda                 |    .14 |
-| testserver           |    .16 |
+| kallisto             |    .15 |
+| catalyst2960l        |    .21 |
 
-# Domains
+## Domains
 
 | **Name**                            |
 |-------------------------------------|

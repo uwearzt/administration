@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---
+- name: arche
+  hosts: arche
+  roles:
+    - base
+    - docker-host
+    - openvpn-server
+    # - openhab-server
+    # - prometheus-server
+    # - prometheus-client

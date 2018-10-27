@@ -1,0 +1,13 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+users:
+  - {name: uwe, pubkey: id_hetzner.pub}
+
+websites:
+  - {url: "uwe-arzt.de",  dir: "site-uwe-arzt"}
+  - {url: "kirsten-klomp.de",  dir: "site-kirsten-klomp"}
+  - {url: "ganymed-it.de",  dir: "site-ganymed-it"}
+  - {url: "lnk-to.me",  dir: "site-lnk-to"}

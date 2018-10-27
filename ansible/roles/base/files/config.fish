@@ -1,29 +1,32 @@
 # ------------------------------------------------------------------------------
 # Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and 
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
 set -U EDITOR nvim
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
-fish_vi_key_bindings
-
-# Rust
-if test -d ~/.cargo/bin
-  set -x PATH $PATH ~/.cargo/bin
+if status --is-interactive
+  fish_vi_key_bindings
 end
+
+set fish_greeting
+
+# brew
+if test -d /usr/local/bin
+  set -x PATH $PATH /usr/local/bin/
+end
+if test -d /usr/local/sbin
+  set -x PATH $PATH /usr/local/sbin/
+end
+
+# local scripts
 if test -d ~/script
   set -x PATH $PATH ~/script
+end
+
+# rust
+if test -d ~/.cargo/bin
+  set -x PATH $PATH ~/.cargo/bin
 end

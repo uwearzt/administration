@@ -1,0 +1,44 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+---
+
+# ------------------------------------------------------------------------------
+- name: check rustup
+  stat:
+    path: $HOME/.cargo/bin/rustup
+  register: rustup
+- name: install rustup
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  when: rustup.stat.exists == False
+
+
+# ------------------------------------------------------------------------------
+- name: install nightly
+  shell: rustup toolchain install {{ item }}
+  with_items:
+    - nightly
+# ------------------------------------------------------------------------------
+- name: default nightly
+  shell: rustup default nightly
+
+# ------------------------------------------------------------------------------
+- name: add additionalö rust components
+  block:
+    - name: add rust components
+      shell: rustup component add {{ item }}
+      with_items:
+        - rustfmt-preview
+
+    - name: add crates
+      shell: cargo install {{ item }}
+      with_items:
+        - ripgrep
+        - cobalt-bin
+        - cargo-update
+        - cargo-outdated
+        - cargo-script
+      ignore_errors: yes
+  when: ansible_os_family == "Debian" and
+        ansible_system_vendor == "raspberrypi"

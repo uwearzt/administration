@@ -1,18 +1,42 @@
 # ------------------------------------------------------------------------------
 # Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and 
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
+
 ---
-- import_playbook: tasks/upgrade-rpm.yml
-- import_playbook: tasks/upgrade-mac.yml
+- name: upgrade everything
+  hosts: all
+
+  tasks:
+# ------------------------------------------------------------------------------
+  - name: update debian packages
+    block:
+      - apt:
+          upgrade: dist
+    when: ansible_os_family == "Debian"
+    become: true
+
+# ------------------------------------------------------------------------------
+  - name: update apple packages
+    block:
+      - name: softwareupdate
+        command: softwareupdate --install --all
+        become: true
+      - name: brew upgrade
+        homebrew: 
+          update_homebrew: yes 
+          upgrade_all: yes
+    when: ansible_os_family == "Darwin"
+
+# ------------------------------------------------------------------------------
+  - name: check rustup, update everything if needed
+    stat:
+      path: $HOME/.cargo/bin/rustup
+    register: rustup
+
+  - name: upgrade rust
+    block: 
+      - shell: rustup self update
+      - shell: rustup update
+      - shell: cargo install-update --all 
+    when: rustup.stat.exists == True
