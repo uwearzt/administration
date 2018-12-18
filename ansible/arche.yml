@@ -8,8 +8,6 @@
   hosts: arche
   roles:
     - base
-    - docker-host
-    - openvpn-server
     # - openhab-server
-    # - prometheus-server
-    # - prometheus-client
+    - prometheus-server
+    - prometheus-client

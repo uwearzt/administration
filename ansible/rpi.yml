@@ -3,10 +3,12 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-- import_tasks: handlers/main.yml
-
-- name: restart docker
-  service:
-    name=docker
-    state=restarted
-  become: true
+---
+- name: RPI Devel
+  hosts: leda
+  roles:
+    - base
+    - base_gui
+    - devel
+    - rust
+    - prometheus-client

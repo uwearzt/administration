@@ -47,7 +47,7 @@
 | arche            | Server (macOS) |
 | kallichore       | |
 | helike           | |
-| carpo            | |
+| carpo            | Robot Rover (Raspbian) |
 | eukelade         | |
 | cyllene          | |
 | kore             | |

@@ -1,0 +1,32 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---    
+- name: prometheus client
+  block:
+    - homebrew: 
+        name: "{{packages}}"
+        state: present
+        update_homebrew: yes
+      vars:
+        packages:
+          - node_exporter
+  when: ansible_os_family == "Darwin"
+
+- name: prometheus client
+  block:
+    - apt: 
+        name: "{{packages}}"
+      vars:
+        packages:
+        - prometheus-node-exporter
+
+    - service:
+        name: prometheus-node-exporter
+        enabled: yes
+        state: started
+  become: true
+  when: ansible_os_family == "Debian"
+

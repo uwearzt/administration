@@ -13,6 +13,7 @@
     block:
       - apt:
           upgrade: dist
+          update_cache: yes
     when: ansible_os_family == "Debian"
     become: true
 
@@ -26,6 +27,12 @@
         homebrew: 
           update_homebrew: yes 
           upgrade_all: yes
+      - name: brew cask upgrade
+        homebrew_cask:
+          update_homebrew: no 
+          upgrade_all: true
+      - name: remove old brew versions
+        command: brew cleanup
     when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
@@ -38,5 +45,9 @@
     block: 
       - shell: rustup self update
       - shell: rustup update
-      - shell: cargo install-update --all 
     when: rustup.stat.exists == True
+  - name: upgrade rust packages
+    block: 
+      - shell: cargo install-update --all 
+    when: rustup.stat.exists == True and
+           ansible_architecture != "armv7l"

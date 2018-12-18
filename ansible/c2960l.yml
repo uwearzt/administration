@@ -1,0 +1,36 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---
+- name: Cisco Switch
+  hosts: c2960l
+  connection: network_cli
+  become: yes
+
+  - ios_facts:
+      gasther_subset: all
+
+  # --------------------------------------------------------------
+  # VLANs
+  # - ios_vlan: 
+    # vlan_id: 20
+    # name: internal
+
+  - ios_vlan: 
+      vlan_id: 40
+      name: guest
+      state: present
+      interfaces:
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+
+  - ios_vlan: 
+      vlan_id: 60
+      name: homeautomation
+      state: present
+      interfaces:
+
+  # --------------------------------------------------------------
+  # Routing

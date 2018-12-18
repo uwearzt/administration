@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>io.prometheus.prometheus</string>
+  <key>Program</key>
+  <string>/usr/local/bin/prometheus</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>--config.file=/etc/prometheus/prometheus.yml</string>
+  </array>
+
+  <key>UserName</key>
+  <string>prometheus</string>
+  <key>GroupName</key>
+  <string>nobody</string>
+
+  <key>WorkingDirectory</key>
+  <string>/home/prometheus</string>
+
+  <key>StandardOutPath</key>
+  <string>/var/log/prometheus/prometheus.stdout</string>
+  <key>StandardErrorPath</key>
+  <string>/var/log/prometheus/prometheus.stderr</string>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+</dict>
+</plist>

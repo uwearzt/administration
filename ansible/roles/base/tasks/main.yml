@@ -18,6 +18,7 @@
           - sudo
           - curl
           - apt-transport-https
+          - qtpass
     - user:
         name: uwe
         shell: /usr/bin/fish
@@ -42,6 +43,14 @@
           - neovim
           - rsync
           - curl
+
+    # - homebrew_cask: 
+    #    name: "{{packages}}"
+    #    state: present
+    #    update_homebrew: yes
+    #  vars:
+    #    packages:
+    #      - 
 
     - lineinfile:
         path: /etc/shells

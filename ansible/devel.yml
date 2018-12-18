@@ -5,9 +5,10 @@
 
 ---
 - name: Development machines
-  hosts: devel
+  hosts: ganymed:isonoe
   roles:
     - base
+    - base_gui
     - devel
     - rust
-    - docker-host
+    - prometheus-client

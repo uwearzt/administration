@@ -24,7 +24,7 @@
   shell: rustup default nightly
 
 # ------------------------------------------------------------------------------
-- name: add additionalö rust components
+- name: add additional rust components
   block:
     - name: add rust components
       shell: rustup component add {{ item }}
@@ -40,5 +40,4 @@
         - cargo-outdated
         - cargo-script
       ignore_errors: yes
-  when: ansible_os_family == "Debian" and
-        ansible_system_vendor == "raspberrypi"
+  when: ansible_architecture != "armv7l"
