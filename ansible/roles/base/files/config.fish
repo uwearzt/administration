@@ -30,3 +30,15 @@ end
 if test -d ~/.cargo/bin
   set -x PATH $PATH ~/.cargo/bin
 end
+
+# fisher
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+
+# ros2
+if test -f /opt/ros/crystal/setup.bash
+  bass source /opt/ros/crystal/setup.bash
+end

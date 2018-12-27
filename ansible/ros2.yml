@@ -3,18 +3,12 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-# ----------------------------------------------------
-# hosts by purpose
-# ----------------------------------------------------
-[devel]
-ganymed
-isonoe
-leda
-# tmp ros2 devel
-ubn18
-
-[server]
-arche
-
-[hetzner]
-hetzner01
+---
+- name: ros2 Devel
+  hosts: ubn18
+  roles:
+    - base
+    - base_gui
+    - devel
+    - rust
+    - ros2

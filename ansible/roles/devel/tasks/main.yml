@@ -36,6 +36,11 @@
   vars:
     packages:
       - mosh
+      - gcc
+      - g++
+      - make
+      - libssl-dev
+      - pkg-config
   when: ansible_os_family == "Debian"
 
 # ------------------------------------------------------------------------------

@@ -76,6 +76,8 @@
     src: files/fish.functions/
     dest: .config/fish/functions/
     backup: yes
+- name: add fisher modules
+  command: fish -c fisher add edc/bass
 
 - name: copy .gitconfig
   copy: 

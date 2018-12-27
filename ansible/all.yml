@@ -8,3 +8,4 @@
 - import_playbook: rpi.yml
 - import_playbook: arche.yml
 - import_playbook: webserver.yml
+- import_playbook: ros2.yml
