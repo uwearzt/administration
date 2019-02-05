@@ -13,15 +13,16 @@
   shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
   when: rustup.stat.exists == False
 
-
 # ------------------------------------------------------------------------------
 - name: install nightly
   shell: rustup toolchain install {{ item }}
   with_items:
     - nightly
+  ignore_errors: yes
 # ------------------------------------------------------------------------------
 - name: default nightly
   shell: rustup default nightly
+  ignore_errors: yes
 
 # ------------------------------------------------------------------------------
 - name: add additional rust components

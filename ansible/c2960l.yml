@@ -7,30 +7,44 @@
 - name: Cisco Switch
   hosts: c2960l
   connection: network_cli
+  gather_facts: no
   become: yes
 
+  tasks:
   - ios_facts:
-      gasther_subset: all
+      gather_subset: all
 
   # --------------------------------------------------------------
   # VLANs
-  # - ios_vlan: 
-    # vlan_id: 20
-    # name: internal
-
   - ios_vlan: 
       vlan_id: 40
       name: guest
       state: present
       interfaces:
-        - GigabitEthernet0/0
         - GigabitEthernet0/1
+        - GigabitEthernet0/2
 
   - ios_vlan: 
       vlan_id: 60
       name: homeautomation
       state: present
       interfaces:
+
+  # --------------------------------------------------------------
+  # interfaces
+  - ios_l2_interface:
+      name: GigabitEthernet0/23
+      mode: trunk
+      native_vlan: 1
+      trunk_allowed_vlans: 1,40,60
+      trunk_vlans: 40,60
+  - ios_l2_interface:
+      name: GigabitEthernet0/24
+      mode: trunk
+      native_vlan: 1
+      trunk_allowed_vlans: 1,40,60
+      trunk_vlans: 40,60
+
 
   # --------------------------------------------------------------
   # Routing

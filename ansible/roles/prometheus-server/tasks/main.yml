@@ -29,6 +29,6 @@
         src: 'template/prometheus.yml.j2'
         dest: '/etc/prometheus/prometheus.yml'
     - copy: 
-        src: 'files/prometheus.plist'
+        src: 'files/de.uwearzt.prometheus.plist'
         dest: /Library/LaunchDaemons/
   become: true

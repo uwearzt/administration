@@ -13,6 +13,12 @@
       vars:
         packages:
           - node_exporter
+      register: restart prometheus-node-exporter
+    - copy:
+        src: files/de.uwearzt.prometheus-node-exporter.plist
+        dest: /Library/LaunchDaemons/
+      become: true
+      register: restart prometheus-node-exporter
   when: ansible_os_family == "Darwin"
 
 - name: prometheus client

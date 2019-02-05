@@ -8,6 +8,5 @@
   hosts: arche
   roles:
     - base
-    # - openhab-server
     - prometheus-server
     - prometheus-client

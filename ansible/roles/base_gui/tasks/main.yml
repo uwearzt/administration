@@ -25,4 +25,6 @@
         packages:
           - qtpass
           - sizeup
+          - launchcontrol
+          - wireshark
   when: ansible_os_family == "Darwin"

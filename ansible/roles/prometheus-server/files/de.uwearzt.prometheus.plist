@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>io.prometheus.prometheus</string>
+  <string>de.uwearzt.prometheus</string>
   <key>Program</key>
   <string>/usr/local/bin/prometheus</string>
   <key>ProgramArguments</key>
@@ -24,8 +24,6 @@
   <key>StandardErrorPath</key>
   <string>/var/log/prometheus/prometheus.stderr</string>
 
-  <key>RunAtLoad</key>
-  <true/>
   <key>KeepAlive</key>
   <true/>
 </dict>

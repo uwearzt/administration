@@ -28,6 +28,7 @@
       vars:
         packages:
           - ros-crystal-desktop
+          - ros-crystal-rqt-gui
 
   when: ansible_os_family == "Debian"
   become: true

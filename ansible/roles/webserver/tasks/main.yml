@@ -9,6 +9,7 @@
       vars:
         packages:
           - nginx
+          - python-certbot-nginx
     - service:
         name: nginx
         enabled: yes
