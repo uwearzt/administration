@@ -44,14 +44,6 @@
           - rsync
           - curl
 
-    # - homebrew_cask: 
-    #    name: "{{packages}}"
-    #    state: present
-    #    update_homebrew: yes
-    #  vars:
-    #    packages:
-    #      - 
-
     - lineinfile:
         path: /etc/shells
         line: /usr/local/bin/fish

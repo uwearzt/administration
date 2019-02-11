@@ -27,4 +27,5 @@
           - sizeup
           - launchcontrol
           - wireshark
+          - vscodium
   when: ansible_os_family == "Darwin"
