@@ -3,10 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-- name: Home Assistant Server
-  hosts: homeassistant
-  roles:
-    - base
-    # - prometheus-client
-    # - homeassistant
+ansible_become_pass: "{{ lookup('passwordstore', 'infra/c2960l') }}"

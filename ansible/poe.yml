@@ -4,9 +4,16 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: Home Assistant Server
-  hosts: homeassistant
-  roles:
-    - base
-    # - prometheus-client
-    # - homeassistant
+- name: Cisco Switch
+  hosts: c2960l
+  connection: network_cli
+  gather_facts: no
+  # become: yes
+
+  tasks:
+  - ios_facts:
+      gather_subset: all
+
+  - name: show poe devices
+    ios_command:
+      commands: show power inline
