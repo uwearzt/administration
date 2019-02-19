@@ -3,18 +3,20 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----    
+---
 - name: prometheus client
   block:
-    - homebrew: 
-        name: "{{packages}}"
+    - name: homebrew
+      homebrew:
+        name: "{{ packages }}"
         state: present
         update_homebrew: yes
       vars:
         packages:
           - node_exporter
       register: restart prometheus-node-exporter
-    - copy:
+    - name: copy launchd
+      copy:
         src: files/de.uwearzt.prometheus-node-exporter.plist
         dest: /Library/LaunchDaemons/
       become: true
@@ -23,13 +25,15 @@
 
 - name: prometheus client
   block:
-    - apt: 
-        name: "{{packages}}"
+    - name: apt
+      apt:
+        name: "{{ packages }}"
       vars:
         packages:
         - prometheus-node-exporter
 
-    - service:
+    - name: install service
+      service:
         name: prometheus-node-exporter
         enabled: yes
         state: started

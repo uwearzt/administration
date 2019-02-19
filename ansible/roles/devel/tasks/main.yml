@@ -5,34 +5,39 @@
 
 ---
 
-- name: brew install
+- name: install packges
   block:
-  - homebrew:
-      name: "{{packages}}"
-      state: present 
+  - name: homebrew
+    homebrew:
+      name: "{{ packages }}"
+      state: present
       update_homebrew: yes
     vars:
       packages:
         - mosh
+        - ansible
+        - ansible-lint
 
   # - homebrew_tap:
   #    name: caskroom/cask
   #    state: present
-  
-  - homebrew_cask:
-      name: "{{packages}}"
+
+  - name: homebrew cask
+    homebrew_cask:
+      name: "{{ packages }}"
       state: present
     vars:
       packages:
-        - 1password-cli
+        - qtpass
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
 
-- name: apt install
+- name: apt install packages
   become: true
-  apt: 
-    name: "{{packages}}"
+
+  apt:
+    name: "{{ packages }}"
   vars:
     packages:
       - mosh
@@ -47,8 +52,8 @@
 
 - name: apt install raspberry
   become: true
-  apt: 
-    name: "{{packages}}"
+  apt:
+    name: "{{ packages }}"
   vars:
     packages:
       - i2c-tools

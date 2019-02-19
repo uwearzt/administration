@@ -5,13 +5,14 @@
 
 ---
 - name: upgrade everything
-  hosts: all
+  hosts: devel:server:hetzner
 
   tasks:
 # ------------------------------------------------------------------------------
-  - name: update debian packages
+  - name: update debian
     block:
-      - apt:
+      - name: apt upgrade
+        apt:
           upgrade: dist
           update_cache: yes
     when: ansible_os_family == "Debian"
@@ -24,12 +25,12 @@
         command: softwareupdate --install --all
         become: true
       - name: brew upgrade
-        homebrew: 
-          update_homebrew: yes 
+        homebrew:
+          update_homebrew: yes
           upgrade_all: yes
       - name: brew cask upgrade
         homebrew_cask:
-          update_homebrew: no 
+          update_homebrew: no
           upgrade_all: true
       - name: remove old brew versions
         command: brew cleanup
@@ -41,13 +42,16 @@
       path: $HOME/.cargo/bin/rustup
     register: rustup
 
-  - name: upgrade rust
-    block: 
-      - shell: rustup self update
-      - shell: rustup update
-    when: rustup.stat.exists == True
+  - name: rustup
+    block:
+      - name: self update
+        command: rustup self update
+      - name: update
+        command: rustup update
+    when: rustup.stat.exists
   - name: upgrade rust packages
-    block: 
-      - shell: cargo install-update --all 
-    when: rustup.stat.exists == True and
+    block:
+      - name: cargo update
+        command: cargo install-update --all
+    when: rustup.stat.exists and
            ansible_architecture != "armv7l"

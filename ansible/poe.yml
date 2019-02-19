@@ -11,7 +11,8 @@
   # become: yes
 
   tasks:
-  - ios_facts:
+  - name: gather facts
+    ios_facts:
       gather_subset: all
 
   - name: show poe devices

@@ -3,10 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----    
-- name: apt install base packages 
+---
+- name: apt install base packages
   block:
-    - apt: name={{packages}} state=present 
+    - name: apt install packages
+      apt: name={{ packages }} state=present
       vars:
         packages:
           - lsof
@@ -19,7 +20,8 @@
           - curl
           - apt-transport-https
           - qtpass
-    - user:
+    - name: create user
+      user:
         name: uwe
         shell: /usr/bin/fish
 
@@ -28,10 +30,11 @@
 
 # ------------------------------------------------------------------------------
 
-- name: brew install base packages
+- name: macOS base install
   block:
-    - homebrew: 
-        name: "{{packages}}"
+    - name: homebrew install packages
+      homebrew:
+        name: "{{ packages }}"
         state: present
         update_homebrew: yes
       vars:
@@ -44,13 +47,15 @@
           - rsync
           - curl
 
-    - lineinfile:
+    - name: add fish shell
+      lineinfile:
         path: /etc/shells
         line: /usr/local/bin/fish
       become: true
 
-    - user: 
-        name: uwe 
+    - name: create user
+      user:
+        name: uwe
         shell: /usr/local/bin/fish
       become: true
 
@@ -59,12 +64,12 @@
 # ------------------------------------------------------------------------------
 
 - name: copy config.fish
-  copy: 
-    src: files/config.fish 
+  copy:
+    src: files/config.fish
     dest: .config/fish/
     backup: yes
 - name: copy fish functions
-  copy: 
+  copy:
     src: files/fish.functions/
     dest: .config/fish/functions/
     backup: yes
@@ -73,7 +78,7 @@
   ignore_errors: yes
 
 - name: copy .gitconfig
-  copy: 
+  copy:
     src: files/gitconfig
     dest: .gitconfig
     backup: yes
@@ -82,7 +87,7 @@
 - name: add sudoers
   template:
     src: 'template/sudoers.d.j2'
-    dest: '/etc/sudoers.d/{{item.name}}'
+    dest: '/etc/sudoers.d/{{ item.name }}'
   with_items:
-    - "{{sudoers}}"
+    - "{{ sudoers }}"
   become: true

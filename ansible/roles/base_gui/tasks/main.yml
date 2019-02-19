@@ -3,10 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----    
-- name: apt install base gui packages 
+---
+- name: apt install base gui packages
   block:
-    - apt: name={{packages}} state=present 
+    - name: gui packages
+      apt: name={{ packages }} state=present
       vars:
         packages:
           - qtpass
@@ -17,8 +18,9 @@
 
 - name: brew cask install base gui packages
   block:
-    - homebrew_cask: 
-        name: "{{packages}}"
+    - name: gui packages
+      homebrew_cask:
+        name: "{{ packages }}"
         state: present
         update_homebrew: yes
       vars:
