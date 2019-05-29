@@ -3,12 +3,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-- name: ros2 Devel
-  hosts: ubn18
-  roles:
-    - base
-    - base_gui
-    - devel
-    - rust
-    - ros2
+interfaces:
+  eth0:
+    enabled: true
+    mac: "b8:27:eb:5b:1c:41"
+    ipv4: "192.168.20.16"

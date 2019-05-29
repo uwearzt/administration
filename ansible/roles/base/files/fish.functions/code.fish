@@ -4,5 +4,5 @@
 # ------------------------------------------------------------------------------
 
 function code
-  vscodium $argv
+  code-insiders $argv
 end

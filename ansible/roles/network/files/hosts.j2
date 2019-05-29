@@ -4,12 +4,14 @@
 # ------------------------------------------------------------------------------
 # generated from Ansible, do not change
 
-# IPv4
-127.0.0.1   localhost    {{ ansible_hostname }}
+# localhost
+127.0.0.1   localhost localhost4 {{ ansible_hostname }}
+::1         localhost localhost6 {{ ansible_hostname }}
 
-192.168.20.10 arche arche.localdomain
-192.168.20.12 isonoe isonoe.localdomain
-192.168.20.40 carpo carpo.localdomain
-
-# IPv6
-::1         localhost   {{ ansible_hostname }}
+{% for host in groups['all'] %}
+{% if host != ansible_hostname %}
+{% if hostvars[host].interfaces.eth0.ipv4 is defined %}
+{{ hostvars[host].interfaces.eth0.ipv4 }} {{ host }}
+{% endif %}
+{% endif %}
+{% endfor %}

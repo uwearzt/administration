@@ -10,14 +10,14 @@
 | himalia          | |
 | elara            | Notebook Kirsten Home (macOS) |
 | pasiphae         | |
-| sinope           | |
+| sinope           | VM (Ubuntu) |
 | lysithe          | |
 | carme            | |
 | ananke           | Notebook Kirsten Work (Windows) |
-| leda             | Raspberry Pi (Raspbian) |
+| leda             | Raspberry Pi (Ubuntu) |
 | thebe            | |
 | adrastea         | |
-| metis            | iMac (macOS) |
+| metis            | |
 | callirrhoe       | |
 | themisto         | |
 | megaclite        | |
@@ -44,10 +44,10 @@
 | mneme            | humanoid robot () |
 | aoede            | |
 | thelxinoe        | |
-| arche            | Server (macOS) |
+| arche            | Mac Mini Server (macOS) |
 | kallichore       | |
-| helike           | |
-| carpo            | Robot Rover (Raspbian) |
+| helike           | Robot Rover () |
+| carpo            | |
 | eukelade         | |
 | cyllene          | |
 | kore             | |

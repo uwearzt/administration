@@ -4,6 +4,12 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: update /etc/hosts file
-  become: true
-  action: template src=files/hosts.j2 dest=/etc/hosts
+- name: Development machines
+  hosts: sinope
+  roles:
+    - base
+    - base_gui
+    - devel
+    - ros2
+    - rust
+    - prometheus-client

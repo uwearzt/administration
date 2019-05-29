@@ -4,6 +4,10 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: update /etc/hosts file
-  become: true
-  action: template src=files/hosts.j2 dest=/etc/hosts
+- name: archenew
+  hosts: archenew
+  roles:
+    - base
+    - network
+    - dhcp-server
+    - prometheus-client

@@ -54,4 +54,4 @@
       - name: cargo update
         command: cargo install-update --all
     when: rustup.stat.exists and
-           ansible_architecture != "armv7l"
+           ansible_architecture != "aarch64"

@@ -19,7 +19,8 @@
           - sudo
           - curl
           - apt-transport-https
-          - qtpass
+          - screen
+          - pass
     - name: create user
       user:
         name: uwe
@@ -46,6 +47,9 @@
           - neovim
           - rsync
           - curl
+          - screen
+          - pass
+          - pass-otp
 
     - name: add fish shell
       lineinfile:

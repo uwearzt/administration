@@ -13,10 +13,19 @@
   tasks:
   - ios_facts:
       gather_subset: all
+  - debug:
+      msg: "IOS version: {{ ansible_net_version }}"
+
+  # --------------------------------------------------------------
+  - name: settings
+    ios_config:
+      commands:
+        - "ip scp server enable"
+        - "aaa authorization exec default local if-authenticated"
 
   # --------------------------------------------------------------
   # VLANs
-  - ios_vlan: 
+  - ios_vlan:
       vlan_id: 40
       name: guest
       state: present
@@ -24,14 +33,14 @@
         - GigabitEthernet0/1
         - GigabitEthernet0/2
 
-  - ios_vlan: 
+  - ios_vlan:
       vlan_id: 60
       name: homeautomation
       state: present
       interfaces:
 
   # --------------------------------------------------------------
-  # interfaces
+  # Access Points
   - ios_l2_interface:
       name: GigabitEthernet0/23
       mode: trunk

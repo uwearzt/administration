@@ -3,7 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
+# just installing the base role incl. user
 ---
-- name: update /etc/hosts file
-  become: true
-  action: template src=files/hosts.j2 dest=/etc/hosts
+- name: Install base role
+  hosts: all
+  roles:
+    - base

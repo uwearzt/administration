@@ -8,7 +8,6 @@
   hosts: leda
   roles:
     - base
-    - base_gui
     - devel
     - rust
     - prometheus-client

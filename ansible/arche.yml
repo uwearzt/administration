@@ -8,4 +8,5 @@
   hosts: arche
   roles:
     - base
+    - network
     - prometheus-client

@@ -17,18 +17,15 @@
         - mosh
         - ansible
         - ansible-lint
+  when: ansible_os_family == "Darwin"
 
-  # - homebrew_tap:
-  #    name: caskroom/cask
-  #    state: present
-
-  - name: homebrew cask
-    homebrew_cask:
-      name: "{{ packages }}"
-      state: present
-    vars:
-      packages:
-        - qtpass
+- name: homebrew cask
+  homebrew_cask:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - qtpass
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
@@ -50,16 +47,23 @@
 
 # ------------------------------------------------------------------------------
 
-- name: apt install raspberry
-  become: true
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - i2c-tools
-      - libi2c-dev
-      - gpiod
-      - libgpiod-dev
-      - raspi-gpio
+- name: raspberry
+  block:
+    - name: apt install raspberry
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+          - i2c-tools
+          - libi2c-dev
+          - gpiod
+          - libgpiod-dev
+          # - raspi-gpio
+    - name: add user to spi/i2c group
+      user:
+        name: uwe
+        groups: i2c,input
+        append: yes
   when: ansible_os_family == "Debian" and
-        ansible_architecture == "armv7l"
+        ansible_architecture == "aarch64"
+  become: true

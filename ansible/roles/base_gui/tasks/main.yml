@@ -4,15 +4,14 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: apt install base gui packages
-  block:
-    - name: gui packages
-      apt: name={{ packages }} state=present
-      vars:
-        packages:
-          - qtpass
-  when: ansible_os_family == "Debian"
-  become: true
+# - name: apt install base gui packages
+  # block:
+    # - name: gui packages
+      # apt: name={{ packages }} state=present
+      # vars:
+        # packages:
+  # when: ansible_os_family == "Debian"
+  # become: true
 
 # ------------------------------------------------------------------------------
 
@@ -25,9 +24,8 @@
         update_homebrew: yes
       vars:
         packages:
-          - qtpass
           - sizeup
-          - launchcontrol
           - wireshark
-          - vscodium
+          - visual-studio-code-insiders
+          # - vscodium
   when: ansible_os_family == "Darwin"

@@ -11,11 +11,24 @@ ganymed
 isonoe
 leda
 
+[rosdevel]
+sinope ansible_python_interpreter=/usr/bin/python3
+stereopi
+
 [server]
 arche
+archenew
+# prometheus
+# homeassistant
 
 [hetzner]
 hetzner01
 
+[hetzner:vars]
+ansible_python_interpreter=/usr/bin/python3
+
 [ios]
 c2960l
+
+[printer]
+hp1415

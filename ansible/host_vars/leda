@@ -3,5 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-eth0: { mac: "b8:27:eb:3b:bb:4e" }
-wlan0: { mac: "b8:27:eb:6e:ee:1b" }
+interfaces:
+  eth0:
+    enabled: true
+    mac: "b8:27:eb:3b:bb:4e"
+    ipv4: "192.168.20.14"
+  wlan0:
+    enabled: false
+    mac: "b8:27:eb:6e:ee:1b"

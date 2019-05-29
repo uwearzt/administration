@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---
+- name: dhcp server
+  block:
+    - name: apt
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - isc-dhcp-server
+
+    - name: install service
+      service:
+        name: isc-dhcp-server
+        enabled: yes
+        state: started
+
+    - name: update /etc/dhcp/dhcpd.conf file
+      action: template src=files/dhcpd.j2 dest=/etc/dhcp/dhcpd.conf
+  become: true
+  when: ansible_os_family == "Debian"

@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-- name: update /etc/hosts file
-  become: true
-  action: template src=files/hosts.j2 dest=/etc/hosts
+interfaces:
+  eth0:
+    enabled: true
+    mac: "00:02:c9:a1:e1:30"
+    ipv4: "192.168.20.11"

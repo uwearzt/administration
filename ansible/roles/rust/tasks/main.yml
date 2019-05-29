@@ -41,4 +41,4 @@
         - cargo-outdated
         - cargo-script
       ignore_errors: yes
-  when: ansible_architecture != "armv7l"
+  when: ansible_architecture != "aarch64"

@@ -1,0 +1,15 @@
+@startuml network
+nwdiag {
+  network dg {
+    router;
+  }
+  network telekom {
+    draytek;
+  }
+  network external {
+    draytek;
+    router;
+    firewall;
+  }
+}
+@enduml
