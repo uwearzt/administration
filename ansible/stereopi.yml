@@ -4,9 +4,8 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: Home Assistant Server
-  hosts: homeassistant
+- name: StereoPi
+  hosts: stereopi
   roles:
     - base
-    # - prometheus-client
-    # - homeassistant
+    - prometheus-client

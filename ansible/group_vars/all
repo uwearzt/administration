@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
+network:
+  domain: uwearzt.de
+
 users:
   - {name: uwe, pubkey: id_private.pub}
 

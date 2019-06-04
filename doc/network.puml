@@ -7,8 +7,11 @@ nwdiag {
     draytek;
   }
   network external {
-    draytek;
-    router;
+    address = "172.x.x.x/24";
+
+	  router [address = "172.x.x.1"];
+	  draytek [address = "172.x.x.2"];
+
     firewall;
   }
 }

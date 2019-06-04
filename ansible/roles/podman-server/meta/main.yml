@@ -3,9 +3,5 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-# just installing the base role incl. user
 ---
-- name: Install base role
-  hosts: all
-  roles:
-    - base
+dependencies: []

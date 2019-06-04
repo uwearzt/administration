@@ -8,7 +8,6 @@
   hosts: c2960l
   connection: network_cli
   gather_facts: no
-  # become: yes
 
   tasks:
   - name: gather facts

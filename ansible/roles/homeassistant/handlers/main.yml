@@ -4,9 +4,3 @@
 # ------------------------------------------------------------------------------
 
 - import_tasks: handlers/main.yml
-
-# - name: restart openhab2
-  # service:
-    # name=openhab2
-    # state=restarted
-  # become: true

@@ -11,7 +11,7 @@
 {% for host in groups['all'] %}
 {% if host != ansible_hostname %}
 {% if hostvars[host].interfaces.eth0.ipv4 is defined %}
-{{ hostvars[host].interfaces.eth0.ipv4 }} {{ host }}
+{{ hostvars[host].interfaces.eth0.ipv4 }} {{ host }} {{ host }}.{{ hostvars[host].network.domain }}
 {% endif %}
 {% endif %}
 {% endfor %}

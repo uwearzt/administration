@@ -4,10 +4,16 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: podman install homeassistant
+- name: apt install base packages
   block:
-  - name: Pull an image
-    podman_image:
-      name: docker.io/homeassistant/home-assistant
+    - name: add podman repo
+      apt_repository:
+        repo: ppa:projectatomic/ppa
+    - name: apt install packages
+      apt: name={{ packages }} state=present
+      vars:
+        packages:
+          - podman
 
   when: ansible_os_family == "Debian"
+  become: true

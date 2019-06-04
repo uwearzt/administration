@@ -10,4 +10,7 @@
     - base
     - network
     - dhcp-server
+    - podman-server
+    - homeassistant
+    - prometheus-server
     - prometheus-client
