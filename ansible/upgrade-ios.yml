@@ -24,27 +24,21 @@
   # upgrade
   - name: upgrade
     block:
-      - name: copy ios image
-        command: "scp /Users/uwe/Downloads/{{image_name}} {{inventory_hostname}}:{{image_name}}"
-
+      - name: copy boot image
+        ios_command:
+          commands:
+            - "scp /Users/uwe/Downloads/{{ image_name }} {{ inventory_hostname }}:{{ image_name }}"
       - name: set boot to new image
         ios_config:
           commands:
-            - "boot system flash:{{image_name}}"
-
-      - name: save actual config
-        ios_config:
+            - "boot system flash:{{ image_name }}"
+      - name: reboot with new image
+        ios_command:
           commands:
             - "write memory"
-
-      - debug:
-        msg: "Restart required for activating new version"
-      #- name: reboot
-      #  ios_command:
-      #    commands:
-      #    - command: 'reload'
-      #      prompt: '\[confirm\]'
-      #      answer: 'y'
+            - command: 'reload'
+              prompt: '\[confirm\]'
+              answer: 'y'
 
     when: ansible_net_version != ios_version
 

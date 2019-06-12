@@ -11,3 +11,7 @@ websites:
   - {url: "kirsten-klomp.de",  dir: "site-kirsten-klomp", git: ""}
   - {url: "ganymed-it.de",  dir: "site-ganymed-it", git: ""}
   - {url: "lnk-to.me",  dir: "site-lnk-to", git: ""}
+
+letsencrypt:
+  email: "letsencrypt@uwe-arzt.de"
+  webroot: "/var/www/"

@@ -12,14 +12,8 @@
         packages:
           - rsync
           - apache2
-#    - name: Enable apache modules
-#      apache2_module:
-#        name: "{{ modules }}"
-#        state: present
-#      vars:
-#        modules:
-#          - rewrite
-#          - ssl
+          - certbot
+          - python3-certbot-apache
     - name: install apache service
       service:
         name: apache2

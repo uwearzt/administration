@@ -79,7 +79,7 @@
     dest: .config/fish/functions/
     backup: yes
 - name: add fisher modules
-  command: fish -c fisher add edc/bass
+  command: fisher add edc/bass
   ignore_errors: yes
 
 - name: copy .gitconfig

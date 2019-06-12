@@ -39,6 +39,6 @@ if not functions -q fisher
 end
 
 # ros2
-if test -f /opt/ros/crystal/setup.bash
-  bass source /opt/ros/crystal/setup.bash
+if test -f /opt/ros/dashing/setup.bash
+  bass source /opt/ros/dashing/setup.bash
 end
