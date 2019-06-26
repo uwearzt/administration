@@ -1,0 +1,18 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+---
+
+- name: install wireguard
+  block:
+    - name: wireguard repo
+      apt_repository:
+        repo: ppa:wireguard/wireguard
+    - name: apt install wireguard
+      apt: name={{ packages }} state=present
+      vars:
+        packages:
+          - wireguard
+  become: true
+  when: ansible_os_family == "Debian"

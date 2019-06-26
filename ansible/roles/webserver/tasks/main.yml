@@ -4,12 +4,13 @@
 # ------------------------------------------------------------------------------
 ---
 
-- name: apache
+- name: apache + needed packages on webserver
   block:
     - name: install apache + certbot packages
       apt: name={{ packages }} state=present
       vars:
         packages:
+          - aptitude
           - rsync
           - apache2
           - certbot
@@ -23,33 +24,69 @@
   when: ansible_os_family == "Debian"
   become: true
 
-- name: copy site configs
-  copy:
-    src: files/sites/
-    dest: /etc/apache2/sites-available/
-  notify: restart apache
-
-- name: make sites available
-  file:
-    src: /etc/apache2/sites-available/{{ item }}.conf
-    dest: /etc/apache2/sites-enabled/{{ item }}.conf
-    state: link
-  notify: restart apache
+# ------------------------------------------------------------------------------
+- name: create forward configs http
+  template:
+    src: 'files/forward.conf.j2'
+    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf'
+  notify: restart apache2
   with_items:
-    - ganymed-it-de
-    - ganymed-it-de-ssl
-    - kirsten-klomp-de
-    - kirsten-klomp-de-ssl
-    - lnk-to-me
-    - lnk-to-me-ssl
-    - psychologische-psychotherapeutin-de
-    - psychologische-psychotherapeutin-de-ssl
-    - robots-de
-    - robots-de-ssl
-    - uwe-arzt-de
-    - uwe-arzt-de-ssl
-    - uwearzt-de
-    - uwearzt-de-ssl
+    - "{{ forward }}"
+- name: create forward configs https
+  template:
+    src: 'files/forward.ssl.conf.j2'
+    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf'
+  notify: restart apache2
+  with_items:
+    - "{{ forward }}"
+- name: make forwards available
+  file:
+    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf
+    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.conf
+    state: link
+  notify: restart apache2
+  with_items:
+    - "{{ forward }}"
+- name: make forwards available
+  file:
+    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf
+    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.ssl.conf
+    state: link
+  notify: restart apache2
+  with_items:
+    - "{{ forward }}"
+
+# ------------------------------------------------------------------------------
+- name: create website forward configs http
+  template:
+    src: 'files/forward.conf.j2'
+    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf'
+  notify: restart apache2
+  with_items:
+    - "{{ website }}"
+- name: create website configs
+  template:
+    src: 'files/site.conf.j2'
+    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf'
+  notify: restart apache2
+  with_items:
+    - "{{ website }}"
+- name: make websites forward available
+  file:
+    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf
+    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.conf
+    state: link
+  notify: restart apache2
+  with_items:
+    - "{{ website }}"
+- name: make websites available
+  file:
+    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf
+    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.ssl.conf
+    state: link
+  notify: restart apache2
+  with_items:
+    - "{{ website }}"
 
 # - name: certificates
 #   block:
@@ -62,4 +99,3 @@
 #         contact:
 #           - mailto:letsencrypt@uwe-arzt.de
 #   become: true
-
