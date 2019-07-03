@@ -16,12 +16,6 @@ website:
       rank: 10
     }
   - {
-      name: "ganymed-it.de",
-      url: "https://ganymed-it.de",
-      dir: "site-ganymed-it",
-      rank: 11
-    }
-  - {
       name: "lnk-to.me",
       url: "https://lnk-to.me",
       dir: "site-lnk-to",
@@ -48,6 +42,11 @@ forward:
       name: "psychologische-psychotherapeutin.de",
       url: "https://kirsten-klomp.de",
       rank: 22
+    }
+  - {
+      name: "ganymed-it.de",
+      url: "https://uwe-arzt.de",
+      rank: 23
     }
 
 letsencrypt:
