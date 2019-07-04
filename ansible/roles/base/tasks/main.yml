@@ -13,7 +13,7 @@
           - aptitude
           - lsof
           - htop
-          - fish
+          - zsh
           - git
           - neovim
           - rsync
@@ -25,7 +25,7 @@
     - name: create user
       user:
         name: uwe
-        shell: /usr/bin/fish
+        shell: /usr/bin/zsh
 
   when: ansible_os_family == "Debian"
   become: true
@@ -52,41 +52,32 @@
           - pass
           - pass-otp
 
-    - name: add fish shell
-      lineinfile:
-        path: /etc/shells
-        line: /usr/local/bin/fish
-      become: true
-
     - name: create user
       user:
         name: uwe
-        shell: /usr/local/bin/fish
+        shell: /bin/zsh
       become: true
 
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
 
-- name: copy config.fish
-  copy:
-    src: files/config.fish
-    dest: .config/fish/
-    backup: yes
-- name: copy fish functions
-  copy:
-    src: files/fish.functions/
-    dest: .config/fish/functions/
-    backup: yes
-- name: add fisher modules
-  command: fisher add edc/bass
-  ignore_errors: yes
-
-- name: copy .gitconfig
+- name: copy gitconfig
   copy:
     src: files/gitconfig
     dest: .gitconfig
-    backup: yes
+- name: copy zshrc
+  copy:
+    src: zshrc
+    dest: .zshrc
+- name: copy zshenv
+  copy:
+    src: zshenv
+    dest: .zshenv
+- name: install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: .oh-my-zsh
 
 # ------------------------------------------------------------------------------
 - name: add sudoers

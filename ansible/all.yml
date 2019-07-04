@@ -6,7 +6,7 @@
 ---
 - import_playbook: devel.yml
 - import_playbook: rpi.yml
-- import_playbook: stereopi.yml
+  # - import_playbook: stereopi.yml
 - import_playbook: arche.yml
 - import_playbook: archenew.yml
 - import_playbook: webserver.yml

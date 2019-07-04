@@ -26,6 +26,5 @@
         packages:
           - sizeup
           - wireshark
-          - visual-studio-code-insiders
-          # - vscodium
+          # - visual-studio-code-insiders
   when: ansible_os_family == "Darwin"
