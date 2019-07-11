@@ -36,7 +36,6 @@
       command: cargo install {{ item }}
       with_items:
         - ripgrep
-        - cobalt-bin
         - cargo-update
         - cargo-outdated
         - cargo-script

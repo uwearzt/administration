@@ -3,15 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-export ZSH=.oh-my-zsh
-
-ZSH_THEME="robbyrussell"
-
-export PATH="$HOME/.cargo/bin":$PATH
+export PATH="$HOME/.cargo/bin:$HOME/bin":$PATH
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin"
 export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8

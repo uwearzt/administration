@@ -2,5 +2,8 @@
 # Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
----
-dependencies: []
+
+interfaces:
+  eth0:
+    enabled: true
+    ipv4: "192.168.20.18"

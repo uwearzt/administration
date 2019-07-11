@@ -5,8 +5,30 @@ export ZSH=.oh-my-zsh
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
+export ZSH=.oh-my-zsh
+
+plugins=(
+  ansible
+  brew
+  cargo
+  forklift
+  git
+  github
+  mosh
+  nmap
+  osx
+  pass
+  ripgrep
+  ros
+  rust
+  screen
+)
+
+ZSH_THEME="uwe"
+source $ZSH/oh-my-zsh.sh
+
 export EDITOR='nvim'
 
-alias code="code-insiders"
 alias hg="history | grep"
 alias vi="nvim"
+alias grep="rg"

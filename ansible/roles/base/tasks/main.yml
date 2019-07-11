@@ -66,6 +66,10 @@
   copy:
     src: files/gitconfig
     dest: .gitconfig
+- name: install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: .oh-my-zsh
 - name: copy zshrc
   copy:
     src: zshrc
@@ -74,10 +78,10 @@
   copy:
     src: zshenv
     dest: .zshenv
-- name: install oh-my-zsh
-  git:
-    repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: .oh-my-zsh
+- name: copy zsh theme
+  copy:
+    src: uwe.zsh-theme
+    dest: .oh-my-zsh/themes/
 
 # ------------------------------------------------------------------------------
 - name: add sudoers
