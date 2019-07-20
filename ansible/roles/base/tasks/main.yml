@@ -15,7 +15,7 @@
           - htop
           - zsh
           - git
-          - neovim
+          - vim
           - rsync
           - sudo
           - curl
@@ -45,7 +45,7 @@
           - htop
           - fish
           - git
-          - neovim
+          - vim
           - rsync
           - curl
           - screen
@@ -61,11 +61,18 @@
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
-
 - name: copy gitconfig
   copy:
     src: files/gitconfig
     dest: .gitconfig
+
+# ------------------------------------------------------------------------------
+- name: install password-store
+  git:
+    repo: ssh://arche/data/git/password-store.git
+    dest: .password-store
+
+# ------------------------------------------------------------------------------
 - name: install oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git

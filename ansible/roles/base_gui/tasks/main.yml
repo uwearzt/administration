@@ -26,5 +26,6 @@
         packages:
           - sizeup
           - wireshark
-          - vscodium
+          - visual-studio-code
+          - brewservicesmenubar
   when: ansible_os_family == "Darwin"

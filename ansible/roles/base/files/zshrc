@@ -22,13 +22,14 @@ plugins=(
   ros
   rust
   screen
+  sudo
 )
 
 ZSH_THEME="uwe"
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='nvim'
+export EDITOR='vim'
 
 alias hg="history | grep"
-alias vi="nvim"
+alias vi="vim"
 alias grep="rg"

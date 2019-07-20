@@ -2,7 +2,7 @@
 
 | moons of jupiter | host    |
 |------------------|---------|
-| io               | Firewall |
+| io               | Firewall () |
 | europa           | |
 | ganymed          | Notebook Uwe (macOS) |
 | kallisto         | VM (Windows) |
@@ -41,12 +41,12 @@
 | kale             | lawn mower () |
 | pasithee         | |
 | hegemone         | |
-| mneme            | humanoid robot () |
+| mneme            | humanoid robot (Ubuntu) |
 | aoede            | |
 | thelxinoe        | |
 | arche            | Mac Mini Server (macOS) |
 | kallichore       | |
-| helike           | Robot Rover () |
+| helike           | Robot Rover (Ubuntu) |
 | carpo            | |
 | eukelade         | |
 | cyllene          | |

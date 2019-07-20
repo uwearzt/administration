@@ -12,8 +12,11 @@ isonoe
 # leda
 
 [rosdevel]
-sinope ansible_python_interpreter=/usr/bin/python3
+sinope
+helike
 # stereopi
+[rosdevel:vars]
+ansible_python_interpreter=/usr/bin/python
 
 [server]
 arche
@@ -21,7 +24,6 @@ archenew
 
 [hetzner]
 hetzner01
-
 [hetzner:vars]
 ansible_python_interpreter=/usr/bin/python3
 

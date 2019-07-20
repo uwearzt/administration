@@ -3,14 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-- name: Development machines
-  hosts: sinope:helike
-  roles:
-    - network
-    - base
-    - base_gui
-    - devel
-    - ros2
-    - rust
-    - prometheus-client
+interfaces:
+  eth0:
+    enabled: true
+    ipv4: "192.168.20.19"
