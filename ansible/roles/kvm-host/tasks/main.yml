@@ -4,16 +4,23 @@
 # ------------------------------------------------------------------------------
 
 ---
-- name: apt install base packages
+- name: kvm
   block:
-    - name: add podman repo
-      apt_repository:
-        repo: ppa:projectatomic/ppa
-    - name: apt install packages
+    - name: install needed packages
       apt: name={{ packages }} state=present
       vars:
         packages:
-          - podman
+          - qemu
+          - qemu-kvm
+          - libvirt-bin
+          - bridge-utils
+          - virtinst
+
+    - name: install service libvirtd
+      service:
+        name: libvirtd
+        enabled: yes
+        state: started
 
   when: ansible_os_family == "Debian"
   become: true

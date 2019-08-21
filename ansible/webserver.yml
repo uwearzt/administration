@@ -7,5 +7,5 @@
 - name: webserver
   hosts: hetzner01
   roles:
-    - webserver
     - prometheus-client
+    - webserver

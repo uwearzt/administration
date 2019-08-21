@@ -22,6 +22,7 @@
           - apt-transport-https
           - screen
           - pass
+          - needrestart
     - name: create user
       user:
         name: uwe

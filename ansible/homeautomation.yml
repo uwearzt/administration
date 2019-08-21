@@ -3,4 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-- import_tasks: handlers/main.yml
+---
+- name: homeautomation
+  hosts: homeautomation
+  roles:
+    - network
+    - base
+    - prometheus-client
+    - ets-inside

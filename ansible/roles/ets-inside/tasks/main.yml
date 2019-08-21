@@ -1,0 +1,29 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---
+- name: ets-inside
+  block:
+    - name: install needed packages
+      apt: name={{ packages }} state=present
+      vars:
+        packages:
+          - libc6-dev
+          - libunwind8
+
+    - name: create KNX user
+      user:
+        name: knx
+        home: /usr/share/KNX
+        password: !
+
+    # - name: install service ets-inside
+    #   service:
+    #     name: ets-inside
+    #     enabled: yes
+    #     state: started
+
+  when: ansible_os_family == "Debian"
+  become: true

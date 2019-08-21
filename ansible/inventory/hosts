@@ -9,26 +9,23 @@
 [devel]
 ganymed
 isonoe
-# leda
 
 [rosdevel]
 sinope
 helike
-# stereopi
+leda
 [rosdevel:vars]
 ansible_python_interpreter=/usr/bin/python
 
 [server]
 arche
 archenew
+homeautomation
 
 [hetzner]
 hetzner01
 [hetzner:vars]
 ansible_python_interpreter=/usr/bin/python3
-
-[ios]
-c2960l
 
 [printer]
 hp1415
@@ -40,3 +37,24 @@ apgarden
 
 [firewall]
 io
+
+# ----------------------------------------------------
+# hosts by os
+# ----------------------------------------------------
+[ubuntu]
+sinope
+helike
+archenew
+leda
+homeautomation
+hetzner01
+[ubuntu:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[macos]
+ganymed
+isonoe
+arche
+
+[ios]
+c2960l

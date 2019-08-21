@@ -9,7 +9,7 @@
   roles:
     - network
     - base
-    - base_gui
+    - base-gui
     - devel
     - ros2
     - rust
