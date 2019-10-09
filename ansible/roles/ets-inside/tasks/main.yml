@@ -12,6 +12,7 @@
         packages:
           - libc6-dev
           - libunwind8
+          - unzip
 
     - name: create KNX user
       user:

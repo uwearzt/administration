@@ -21,6 +21,7 @@
           - curl
           - apt-transport-https
           - screen
+          - mosh
           - pass
           - needrestart
     - name: create user
@@ -50,6 +51,7 @@
           - rsync
           - curl
           - screen
+          - mosh
           - pass
           - pass-otp
 

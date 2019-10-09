@@ -1,5 +1,3 @@
-export ZSH=.oh-my-zsh
-
 # ------------------------------------------------------------------------------
 # Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
@@ -26,6 +24,8 @@ plugins=(
 )
 
 ZSH_THEME="uwe"
+ZSH_DISABLE_COMPFIX=true
+
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'

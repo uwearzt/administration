@@ -14,7 +14,7 @@
 | lysithe          | |
 | carme            | |
 | ananke           | Notebook Kirsten Work (Windows) |
-| leda             | Raspberry Pi (Ubuntu) |
+| leda             | Raspberry Pi (Raspbian) |
 | thebe            | |
 | adrastea         | |
 | metis            | |
@@ -46,7 +46,7 @@
 | thelxinoe        | |
 | arche            | Mac Mini Server (macOS) |
 | kallichore       | |
-| helike           | Robot Rover (Ubuntu) |
+| helike           | robot rover (Ubuntu) |
 | carpo            | |
 | eukelade         | |
 | cyllene          | |

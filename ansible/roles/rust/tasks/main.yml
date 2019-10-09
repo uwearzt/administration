@@ -39,5 +39,6 @@
         - cargo-update
         - cargo-outdated
         - cargo-script
+        - cargo-audit
       ignore_errors: yes
   when: ansible_architecture != "aarch64"

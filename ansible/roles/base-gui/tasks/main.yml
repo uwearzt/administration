@@ -24,6 +24,7 @@
         update_homebrew: yes
       vars:
         packages:
+          - gpg-suite
           - sizeup
           - wireshark
           - visual-studio-code

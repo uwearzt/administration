@@ -8,5 +8,4 @@ ansible_become_pass: "{{ lookup('passwordstore', 'infra/c2960l') }}"
 interfaces:
   eth0:
     enabled: false
-    mac: ""
     ipv4: "192.168.20.21"
