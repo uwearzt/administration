@@ -10,5 +10,6 @@ virt-install \
   --disk path=/var/lib/libvirt/images/tick.img,bus=virtio,size=50 \
   --network bridge:br0 \
   --graphics none \
+  --autostart \
   --location /home/uwe/ubuntu-18.04.3-server-amd64.iso \
   --extra-args console=ttyS0

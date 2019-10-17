@@ -1,15 +1,13 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2019 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
 ---
-- name: Development machines
-  hosts: sinope:helike
+- name: tick stack
+  hosts: tick
   roles:
-    - network
     - base
-    - base-gui
-    - devel
-    - ros2
-    - rust
+    - network
+    - tick-server
+    - tick-client

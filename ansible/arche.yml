@@ -9,4 +9,3 @@
   roles:
     - base
     - network
-    - prometheus-client

@@ -11,5 +11,4 @@
     - network
     - dhcp-server
     - kvm-host
-    - prometheus-server
-    - prometheus-client
+    - tick-client

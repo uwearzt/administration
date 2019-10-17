@@ -9,7 +9,7 @@
   roles:
     - network
     - base
+    - pass
     - base-gui
     - devel
     - rust
-    - prometheus-client

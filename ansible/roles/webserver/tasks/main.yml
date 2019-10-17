@@ -15,7 +15,6 @@
           - apache2
           - certbot
           - python3-certbot-apache
-          - prometheus-apache-exporter
           - needrestart
     - name: install apache service
       service:

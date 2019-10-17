@@ -1,15 +1,10 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2019 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-- name: Development machines
-  hosts: sinope:helike
-  roles:
-    - network
-    - base
-    - base-gui
-    - devel
-    - ros2
-    - rust
+interfaces:
+  eth0:
+    enabled: true
+    mac: "d8:5d:e2:6d:c6:fb"
+    ipv4: "192.168.20.31"

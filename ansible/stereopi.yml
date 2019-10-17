@@ -9,4 +9,3 @@
   roles:
     - base
     # - ros2
-    - prometheus-client

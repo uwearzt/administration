@@ -9,5 +9,4 @@
   roles:
     - network
     - base
-    - prometheus-client
     - ets-inside
