@@ -88,7 +88,7 @@
 # ------------------------------------------------------------------------------
 - name: add sudoers
   template:
-    src: 'template/sudoers.d.j2'
+    src: 'files/sudoers.d.j2'
     dest: '/etc/sudoers.d/{{ item.name }}'
   with_items:
     - "{{ sudoers }}"

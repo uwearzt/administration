@@ -31,3 +31,15 @@
       state: started
   become: true
   when: ansible_os_family == "Debian"
+
+- name: install tick stack
+  block:
+  - name: homebrew install packages
+    homebrew:
+      name: "{{ packages }}"
+      state: present
+      update_homebrew: yes
+    vars:
+      packages:
+        - telegraf
+  when: ansible_os_family == "Darwin"

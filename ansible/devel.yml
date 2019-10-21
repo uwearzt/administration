@@ -13,3 +13,4 @@
     - base-gui
     - devel
     - rust
+    - tick-client
