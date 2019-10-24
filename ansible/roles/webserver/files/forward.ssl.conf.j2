@@ -1,6 +1,6 @@
 <VirtualHost *:443>
     ServerName {{ item.name }}
-    Redirect permanent / {{ item.url }}
+    Redirect permanent / {{ item.url }}/
 
     SSLCertificateFile /etc/letsencrypt/live/{{ item.name }}/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/{{ item.name }}/privkey.pem

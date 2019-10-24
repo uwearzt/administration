@@ -5,6 +5,7 @@
 
 network:
   domain: uwearzt.de
+  snmp: ro-snmp
 
 users:
   - {name: uwe, pubkey: id_private.pub}

@@ -24,6 +24,12 @@
       packages:
       - telegraf
 
+  - name: copy telegraf.conf
+    copy:
+      src: telegraf.conf
+      dest: /etc/telegraf/telegraf.conf
+    notify: restart telegraf
+
   - name: install telegraf service
     service:
       name: telegraf
@@ -42,4 +48,10 @@
     vars:
       packages:
         - telegraf
+  - name: copy telegraf.conf
+    copy:
+      src: telegraf.conf
+      dest: /usr/local/etc/telegraf.conf
+    # notify: restart telegraf
+    become: true
   when: ansible_os_family == "Darwin"

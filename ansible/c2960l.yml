@@ -22,6 +22,7 @@
       commands:
         - "ip scp server enable"
         - "aaa authorization exec default local if-authenticated"
+        - "snmp-server community ro-snmp RO "
 
   # --------------------------------------------------------------
   # VLANs
