@@ -11,15 +11,14 @@ ganymed
 isonoe
 
 [rosdevel]
-sinope
-helike
-leda
+#sinope
+#helike
+#leda
 [rosdevel:vars]
 ansible_python_interpreter=/usr/bin/python
 
 [server]
 arche
-archenew
 homeautomation
 tick
 
@@ -43,10 +42,10 @@ io
 # hosts by os
 # ----------------------------------------------------
 [ubuntu]
-sinope
-helike
-archenew
-leda
+# sinope
+# helike
+arche
+# leda
 homeautomation
 hetzner01
 [ubuntu:vars]
@@ -55,7 +54,6 @@ ansible_python_interpreter=/usr/bin/python3
 [macos]
 ganymed
 isonoe
-arche
 
 [ios]
 c2960l

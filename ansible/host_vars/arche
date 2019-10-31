@@ -6,5 +6,5 @@
 interfaces:
   eth0:
     enabled: true
-    mac: "68:5b:35:bf:45:1e"
+    mac: "00:02:c9:a1:e1:30"
     ipv4: "192.168.20.10"

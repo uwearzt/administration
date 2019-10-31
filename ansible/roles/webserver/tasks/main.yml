@@ -102,3 +102,14 @@
 #         contact:
 #           - mailto:letsencrypt@uwe-arzt.de
 #   become: true
+
+# ------------------------------------------------------------------------------
+- name: weekly restart apache
+  cron:
+    name: restart apache
+    weekday: "3"
+    minute: "23"
+    hour: "23"
+    user: root
+    job: "systemctl restart apache2"
+    cron_file: restart-apache

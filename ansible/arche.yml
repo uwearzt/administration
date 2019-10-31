@@ -9,3 +9,6 @@
   roles:
     - base
     - network
+    - dhcp-server
+    - kvm-host
+    - tick-client
