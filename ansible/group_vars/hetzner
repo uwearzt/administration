@@ -16,16 +16,10 @@ website:
       rank: 10
     }
   - {
-      name: "lnk-to.me",
-      url: "https://lnk-to.me",
-      dir: "site-lnk-to",
-      rank: 12
-    }
-  - {
       name: "kirsten-klomp.de",
       url: "https://kirsten-klomp.de",
       dir: "site-kirsten-klomp",
-      rank: 13
+      rank: 11
     }
 forward:
   - {
@@ -47,6 +41,11 @@ forward:
       name: "ganymed-it.de",
       url: "https://uwe-arzt.de",
       rank: 23
+    }
+  - {
+      name: "lnk-to.me",
+      url: "https://uwe-arzt.de",
+      rank: 24
     }
 
 letsencrypt:

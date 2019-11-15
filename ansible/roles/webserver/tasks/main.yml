@@ -17,7 +17,6 @@
           - python3-certbot-apache
           - needrestart
           - mosh
-          - goaccess
     - name: install apache service
       service:
         name: apache2

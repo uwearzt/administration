@@ -3,18 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
----
-# - name: apt install base gui packages
-  # block:
-    # - name: gui packages
-      # apt: name={{ packages }} state=present
-      # vars:
-        # packages:
-  # when: ansible_os_family == "Debian"
-  # become: true
-
-# ------------------------------------------------------------------------------
-
 - name: brew cask install base gui packages
   block:
     - name: gui packages
@@ -25,7 +13,6 @@
       vars:
         packages:
           - gpg-suite
-          - sizeup
           - wireshark
           - visual-studio-code
           - brewservicesmenubar
