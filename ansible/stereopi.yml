@@ -7,5 +7,5 @@
 - name: StereoPi
   hosts: stereopi
   roles:
-    - base
+    - base-cmd
     # - ros2

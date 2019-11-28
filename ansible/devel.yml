@@ -8,7 +8,7 @@
   hosts: ganymed:isonoe
   roles:
     - network
-    - base
+    - base-cmd
     - pass
     - base-gui
     - devel

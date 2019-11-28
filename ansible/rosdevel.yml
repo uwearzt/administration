@@ -8,7 +8,7 @@
   hosts: sinope
   roles:
     - network
-    - base
+    - base-cmd
     - base-gui
     - devel
     - ros2

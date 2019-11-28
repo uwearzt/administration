@@ -7,7 +7,7 @@
 - name: arche
   hosts: arche
   roles:
-    - base
+    - base-cmd
     - network
     - dhcp-server
     - kvm-host

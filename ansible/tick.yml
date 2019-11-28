@@ -7,7 +7,7 @@
 - name: tick stack
   hosts: tick
   roles:
-    - base
+    - base-cmd
     - network
     - tick-server
     - tick-client

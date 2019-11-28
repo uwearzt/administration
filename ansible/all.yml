@@ -5,7 +5,6 @@
 
 ---
 - import_playbook: arche.yml
-- import_playbook: archenew.yml
 - import_playbook: webserver.yml
 - import_playbook: devel.yml
 - import_playbook: rosdevel.yml

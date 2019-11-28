@@ -7,6 +7,6 @@
 - name: RPI Devel
   hosts: leda
   roles:
-    - base
+    - base-cmd
     - devel
     - rust
