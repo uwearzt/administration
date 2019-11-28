@@ -24,9 +24,9 @@
           - mosh
           - pass
           - needrestart
-    - name: create user
+    - name: change shell
       user:
-        name: uwe
+        name: "{{ ansible_user_id }}"
         shell: /usr/bin/zsh
 
   when: ansible_os_family == "Debian"
@@ -53,9 +53,9 @@
           - screen
           - mosh
 
-    - name: create user
+    - name: change shell
       user:
-        name: uwe
+        name: "{{ ansible_user_id }}"
         shell: /bin/zsh
       become: true
 
