@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -9,13 +9,12 @@
 [devel]
 ganymed
 isonoe
+leda
 
 [rosdevel]
-#sinope
-#helike
-#leda
+sinope
 [rosdevel:vars]
-ansible_python_interpreter=/usr/bin/python
+ansible_python_interpreter=/usr/bin/python3
 
 [server]
 arche
@@ -28,7 +27,7 @@ hetzner01
 ansible_python_interpreter=/usr/bin/python3
 
 [printer]
-hp1415
+dl2350
 
 [ap]
 apeg
@@ -42,14 +41,15 @@ io
 # hosts by os
 # ----------------------------------------------------
 [ubuntu]
-# sinope
-# helike
+sinope
 arche
-# leda
 homeautomation
 hetzner01
 [ubuntu:vars]
 ansible_python_interpreter=/usr/bin/python3
+
+[raspbian]
+leda
 
 [macos]
 ganymed

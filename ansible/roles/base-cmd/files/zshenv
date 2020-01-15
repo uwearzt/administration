@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -11,6 +11,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-if [ -f /opt/ros/dashing/setup.zsh ]; then
-  . /opt/ros/dashing/setup.zsh
+if [ -f /opt/ros/eloquent/setup.zsh ]; then
+  . /opt/ros/eloquent/setup.zsh
 fi

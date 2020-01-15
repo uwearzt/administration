@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -17,15 +17,6 @@
         - mosh
         - ansible
         - ansible-lint
-  when: ansible_os_family == "Darwin"
-
-- name: homebrew cask
-  homebrew_cask:
-    name: "{{ packages }}"
-    state: present
-  vars:
-    packages:
-      - qtpass
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
@@ -65,5 +56,5 @@
         groups: i2c,input
         append: yes
   when: ansible_os_family == "Debian" and
-        ansible_architecture == "aarch64"
+        ansible_architecture == "armv7l" or ansible_architecture == "aarch64"
   become: true
