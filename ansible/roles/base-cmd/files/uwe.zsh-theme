@@ -1,4 +1,8 @@
-# This theme is based on robbyrussell.zsh-theme
+# ------------------------------------------------------------------------------
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+# # This theme is based on robbyrussell.zsh-theme
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 local hostname="$(hostname -s)"

@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -24,6 +24,8 @@
           - mosh
           - pass
           - needrestart
+          - tmux
+          - ripgrep
     - name: change shell
       user:
         name: "{{ ansible_user_id }}"
@@ -45,14 +47,14 @@
         packages:
           - lsof
           - htop
-          - fish
           - git
           - vim
           - rsync
           - curl
           - screen
           - mosh
-
+          - tmux
+          - ripgrep
     - name: change shell
       user:
         name: "{{ ansible_user_id }}"
@@ -84,6 +86,12 @@
   copy:
     src: uwe.zsh-theme
     dest: .oh-my-zsh/themes/
+
+# ------------------------------------------------------------------------------
+- name: copy tmux settings
+  copy:
+    src: tmux.conf
+    dest: .tmux.conf
 
 # ------------------------------------------------------------------------------
 - name: add sudoers

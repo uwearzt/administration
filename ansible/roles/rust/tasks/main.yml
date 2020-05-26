@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 ---
@@ -35,9 +35,7 @@
     - name: add crates
       command: cargo install {{ item }}
       with_items:
-        - ripgrep
         - cargo-update
-        - cargo-outdated
         - cargo-script
         - cargo-audit
       ignore_errors: yes

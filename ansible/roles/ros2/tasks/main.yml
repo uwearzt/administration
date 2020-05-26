@@ -17,10 +17,19 @@
       apt_key:
         url: http://repo.ros2.org/repos.key
         state: present
+    - name: add gazebo repo key
+      apt_key:
+        url: http://packages.osrfoundation.org/gazebo.key
+        state: present
 
     - name: add ros2 repo
       apt_repository:
         repo: deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu {{ ansible_distribution_release }} main
+        filename: ros2
+        state: present
+    - name: add gazebo repo
+      apt_repository:
+        repo: deb [arch=amd64,arm64] http://packages.osrfoundation.org/gazebo/ubuntu-stable {{ ansible_distribution_release }} main
         filename: ros2
         state: present
 
@@ -29,6 +38,11 @@
       vars:
         packages:
           - ros-eloquent-desktop
+    - name: install ignition gazebo
+      apt: name={{ packages }} state=present update_cache=yes
+      vars:
+        packages:
+          - libignition-gazebo3-dev
 
   when: ansible_os_family == "Debian"
   become: true

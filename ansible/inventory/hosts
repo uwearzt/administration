@@ -8,7 +8,6 @@
 # ----------------------------------------------------
 [devel]
 ganymed
-isonoe
 leda
 
 [rosdevel]
@@ -18,7 +17,6 @@ ansible_python_interpreter=/usr/bin/python3
 
 [server]
 arche
-homeautomation
 tick
 
 [hetzner]
@@ -37,13 +35,15 @@ apgarden
 [firewall]
 io
 
+[other]
+dp832
+
 # ----------------------------------------------------
 # hosts by os
 # ----------------------------------------------------
 [ubuntu]
 sinope
 arche
-homeautomation
 hetzner01
 [ubuntu:vars]
 ansible_python_interpreter=/usr/bin/python3
@@ -53,7 +53,10 @@ leda
 
 [macos]
 ganymed
-isonoe
 
 [ios]
 c2960l
+
+[openwrt]
+io
+apgarden

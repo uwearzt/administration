@@ -1,20 +1,16 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
 ---
-- name: kvm
+- name: wireguard
   block:
-    - name: install needed packages
-      apt: name={{ packages }} state=present
+    - name: install wireguard
+      apt: name={{ packages }} state=present update_cache=yes
       vars:
         packages:
-          - qemu
-          - qemu-kvm
-          - libvirt-clients
-          - bridge-utils
-          - virtinst
+          - wireguard
 
   when: ansible_os_family == "Debian"
   become: true
