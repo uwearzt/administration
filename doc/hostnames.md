@@ -2,7 +2,7 @@
 
 | moons of jupiter | host    |
 |------------------|---------|
-| io               | Firewall () |
+| io               | Firewall (OpenWRT) |
 | europa           | |
 | ganymed          | Notebook Uwe (macOS) |
 | kallisto         | VM (Windows) |
@@ -14,7 +14,7 @@
 | lysithe          | |
 | carme            | |
 | ananke           | Notebook Kirsten Work (Windows) |
-| leda             | Raspberry Pi (Raspbian) |
+| leda             | Raspberry Pi (Ubuntu) |
 | thebe            | |
 | adrastea         | |
 | metis            | |
@@ -27,7 +27,7 @@
 | kalyke           | |
 | iocaste          | |
 | erinome          | |
-| isonoe           | Mac Mini (macOS) |
+| isonoe           | Lab (macOS) |
 | praxidike        | |
 | autonoe          | |
 | thyone           | |
@@ -38,15 +38,15 @@
 | euporie          | |
 | orthosie         | |
 | sponde           | |
-| kale             | lawn mower () |
+| kale             | Lawn Mower (Ubuntu) |
 | pasithee         | |
 | hegemone         | |
-| mneme            | humanoid robot (Ubuntu) |
+| mneme            | |
 | aoede            | |
 | thelxinoe        | |
-| arche            | Mac Mini Server (macOS) |
+| arche            | Fileserver (Ubuntu) |
 | kallichore       | |
-| helike           | robot rover (Ubuntu) |
+| helike           | |
 | carpo            | |
 | eukelade         | |
 | cyllene          | |

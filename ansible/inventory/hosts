@@ -8,21 +8,14 @@
 # ----------------------------------------------------
 [devel]
 ganymed
+isonoe
 leda
 
 [rosdevel]
 sinope
-[rosdevel:vars]
-ansible_python_interpreter=/usr/bin/python3
 
 [server]
 arche
-tick
-
-[hetzner]
-hetzner01
-[hetzner:vars]
-ansible_python_interpreter=/usr/bin/python3
 
 [printer]
 dl2350
@@ -44,15 +37,13 @@ dp832
 [ubuntu]
 sinope
 arche
-hetzner01
-[ubuntu:vars]
-ansible_python_interpreter=/usr/bin/python3
 
 [raspbian]
 leda
 
 [macos]
 ganymed
+isonoe
 
 [ios]
 c2960l

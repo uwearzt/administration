@@ -7,7 +7,5 @@
 - import_playbook: arche.yml
 - import_playbook: webserver.yml
 - import_playbook: devel.yml
-- import_playbook: rodevel.yml
-- import_playbook: homeautomation.yml
-- import_playbook: tick.yml
+- import_playbook: rosdevel.yml
 - import_playbook: rpi.yml

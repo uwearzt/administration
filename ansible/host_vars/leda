@@ -6,7 +6,7 @@
 interfaces:
   eth0:
     enabled: true
-    mac: "dc:a6:32:07:5a:81"
+    mac: "dc:a6:32:53:c1:f8"
     ipv4: "192.168.20.15"
   wlan0:
     enabled: false

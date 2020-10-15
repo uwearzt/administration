@@ -5,7 +5,6 @@
 
 network:
   domain: uwearzt.de
-  snmp: ro-snmp
 
 users:
   - {name: uwe, pubkey: id_private.pub}
@@ -25,18 +24,6 @@ networks:
     5ghz: guest,
     2ghz: guest_legacy,
     ipv4: 192.168.22.0/24
-  }
-  - {
-    name: homeautomation,
-    5ghz: homeautomation,
-    2ghz: homeautomation_legacy,
-    ipv4: 192.168.24.0/24
-  }
-  - {
-    name: robotics,
-    5ghz: robots,
-    2ghz: robots_legacy,
-    ipv4: 192.168.26.0/24
   }
   - {
     name: kirstenpraxis,

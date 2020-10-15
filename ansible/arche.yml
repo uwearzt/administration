@@ -9,4 +9,4 @@
   roles:
     - base-cmd
     - network
-    - kvm-host
+    - docker-host

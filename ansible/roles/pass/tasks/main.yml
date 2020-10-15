@@ -32,7 +32,7 @@
   when: ansible_os_family == "Darwin"
 
 # ------------------------------------------------------------------------------
-- name: install password-store
-  git:
-    repo: ssh://arche/data/git/password-store.git
-    dest: .password-store
+# - name: install password-store
+  # git:
+    # repo: ssh://arche/data/git/password-store.git
+    # dest: .password-store

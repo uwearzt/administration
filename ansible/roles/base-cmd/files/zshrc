@@ -28,8 +28,8 @@ ZSH_DISABLE_COMPFIX=true
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 alias hg="history | rg"
-alias vi="vim"
+alias vi="nvim"
 alias grep="rg"

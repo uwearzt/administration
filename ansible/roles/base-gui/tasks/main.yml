@@ -14,6 +14,6 @@
         packages:
           - gpg-suite
           - wireshark
-          - visual-studio-code
           - brewservicesmenubar
+          # - visual-studio-code
   when: ansible_os_family == "Darwin"

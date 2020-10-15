@@ -5,7 +5,7 @@
 
 ---
 - name: Development machines
-  hosts: ganymed:isonoe
+  hosts: ganymed
   roles:
     - network
     - base-cmd
@@ -13,4 +13,3 @@
     - base-gui
     - devel
     - rust
-    - tick-client
