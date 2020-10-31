@@ -1,0 +1,21 @@
+{
+  experimental_http3
+}
+
+{% for website in websites %}
+{{ website.url }} {
+{% if website.dir is defined %}
+  file_server
+  root * /var/www/{{ website.dir}}
+  encode zstd gzip
+
+  tls {{ website.email }} {
+    protocols tls1.2 tls1.3
+  }
+{% else %}
+{% if website.forward is defined %}
+  redir {{ website.forward }}{uri}
+{% endif %}
+{% endif %}
+}
+{% endfor %}

@@ -9,12 +9,6 @@
     state=restarted
   become: true
 
-- name: restart apache2
-  service:
-    name=apache2
-    state=restarted
-  become: true
-
 - name: restart telegraf
   service:
     name=telegraf

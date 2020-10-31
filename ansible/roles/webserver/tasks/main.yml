@@ -1,25 +1,24 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 ---
 
-- name: apache + needed packages on webserver
+- name: install caddy
   block:
-    - name: install apache + certbot packages
+    - name: add caddy repo
+      apt_repository:
+        repo: deb [trusted=yes] https://apt.fury.io/caddy/ /
+        filename: caddy-fury
+        state: present
+    - name: install caddy
       apt: name={{ packages }} state=present
       vars:
         packages:
-          - aptitude
-          - rsync
-          - apache2
-          - certbot
-          - python3-certbot-apache
-          - needrestart
-          - mosh
-    - name: install apache service
+          - caddy
+    - name: install caddy service
       service:
-        name: apache2
+        name: caddy
         enabled: yes
         state: started
 
@@ -27,88 +26,8 @@
   become: true
 
 # ------------------------------------------------------------------------------
-- name: create forward configs http
+- name: create caddyfile
   template:
-    src: 'files/forward.conf.j2'
-    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf'
-  notify: restart apache2
-  with_items:
-    - "{{ forward }}"
-- name: create forward configs https
-  template:
-    src: 'files/forward.ssl.conf.j2'
-    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf'
-  notify: restart apache2
-  with_items:
-    - "{{ forward }}"
-- name: make forwards available
-  file:
-    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf
-    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.conf
-    state: link
-  notify: restart apache2
-  with_items:
-    - "{{ forward }}"
-- name: make forwards available
-  file:
-    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf
-    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.ssl.conf
-    state: link
-  notify: restart apache2
-  with_items:
-    - "{{ forward }}"
-
-# ------------------------------------------------------------------------------
-- name: create website forward configs http
-  template:
-    src: 'files/forward.conf.j2'
-    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf'
-  notify: restart apache2
-  with_items:
-    - "{{ website }}"
-- name: create website configs
-  template:
-    src: 'files/site.conf.j2'
-    dest: '/etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf'
-  notify: restart apache2
-  with_items:
-    - "{{ website }}"
-- name: make websites forward available
-  file:
-    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.conf
-    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.conf
-    state: link
-  notify: restart apache2
-  with_items:
-    - "{{ website }}"
-- name: make websites available
-  file:
-    src: /etc/apache2/sites-available/{{ item.rank }}-{{ item.name }}.ssl.conf
-    dest: /etc/apache2/sites-enabled/{{ item.rank }}-{{ item.name }}.ssl.conf
-    state: link
-  notify: restart apache2
-  with_items:
-    - "{{ website }}"
-
-# - name: certificates
-#   block:
-#     - name: check my account
-#       acme_account:
-#         acme_version: 2
-#         account_key_src: /etc/pki/cert/private/account.key
-#         state: present
-#         allow_creation: yes
-#         contact:
-#           - mailto:letsencrypt@uwe-arzt.de
-#   become: true
-
-# ------------------------------------------------------------------------------
-- name: weekly restart apache
-  cron:
-    name: restart apache
-    weekday: "3"
-    minute: "23"
-    hour: "23"
-    user: root
-    job: "systemctl restart apache2"
-    cron_file: restart-apache
+    src: 'files/Caddyfile.j2'
+    dest: '/etc/caddy/Caddyfile'
+  notify: restart caddy
