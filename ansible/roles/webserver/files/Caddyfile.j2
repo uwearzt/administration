@@ -12,6 +12,20 @@
   tls {{ website.email }} {
     protocols tls1.2 tls1.3
   }
+  log {
+    format filter {
+      wrap console
+      fields {
+        request>remote_addr delete
+        request>headers>User-Agent delete
+      }
+    }
+    output file /var/log/caddy/{{ website.dir }}.log {
+	    roll_size     16mb
+	    roll_keep     5
+	    roll_keep_for 5d
+    }
+  }
 {% else %}
 {% if website.forward is defined %}
   redir {{ website.forward }}{uri}
