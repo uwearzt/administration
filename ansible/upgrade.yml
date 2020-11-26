@@ -5,7 +5,7 @@
 
 ---
 - name: upgrade everything
-  hosts: devel:server:hetzner:rosdevel
+  hosts: devel:server:webserver:rosdevel
 
   tasks:
 # ------------------------------------------------------------------------------

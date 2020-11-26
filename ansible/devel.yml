@@ -5,7 +5,7 @@
 
 ---
 - name: Development machines
-  hosts: ganymed
+  hosts: devel
   roles:
     - network
     - base-cmd

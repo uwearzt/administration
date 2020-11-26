@@ -8,11 +8,10 @@
 # ----------------------------------------------------
 [devel]
 ganymed
-isonoe
 leda
 
 [rosdevel]
-sinope
+isonoe
 
 [server]
 arche
@@ -40,17 +39,17 @@ hetzner01
 [ubuntu]
 sinope
 arche
+isonoe
 
 [raspbian]
 leda
 
 [macos]
 ganymed
-isonoe
 
 [ios]
 c2960l
 
-[openwrt]
-io
-apgarden
+[openwrt:children]
+firewall
+ap

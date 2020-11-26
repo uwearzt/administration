@@ -11,8 +11,8 @@
   become: yes
 
   vars:
-    ios_version: 15.2(7)E0a
-    image_name: c2960l-universalk9-mz.152-7.E0a.bin
+    ios_version: 15.2(7)E3
+    image_name: c2960l-universalk9-mz.152-7.E3.bin
 
   tasks:
   - ios_facts:
