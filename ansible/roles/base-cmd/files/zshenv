@@ -1,9 +1,9 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2021 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-export PATH="$HOME/.cargo/bin:$HOME/bin":$PATH
+export PATH="$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin":$PATH
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/opt/gcc-arm/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -11,6 +11,10 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+# rust dev
+export PROBE_RS_SENTRY=false
+
+# ros dev
 if [ -f /opt/ros/foxy/setup.zsh ]; then
   . /opt/ros/foxy/setup.zsh
 fi

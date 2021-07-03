@@ -1,0 +1,24 @@
+@startuml Network
+
+cloud "Internet\nDeutsche Glasfaser" as dg
+rectangle "Nokia G-010G" as converter
+rectangle "Firewall\nOpenWRT" as fw
+rectangle "DMZ" as dmz
+rectangle "Catalyst C2960L" as switch
+rectangle "arche\nUbuntu" as arche
+rectangle "AP OG\nOpenWRT" as apog
+rectangle "AP EG\nOpenWRT" as apeg
+rectangle "AP OD\nOpenWRT" as apod
+rectangle "DECT/SIP" as sip
+
+dg -- converter
+converter -- fw : 1GB
+dmz -- fw
+fw -- switch
+switch -- arche : 10GB
+switch -- apog
+switch -- apeg
+switch -- apod
+switch -- sip
+
+@enduml

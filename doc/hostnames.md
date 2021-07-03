@@ -5,7 +5,7 @@
 | io               | Firewall (OpenWRT) |
 | europa           | |
 | ganymed          | Notebook Uwe (macOS) |
-| kallisto         | VM (Windows) |
+| kallisto         | |
 | amalthea         | |
 | himalia          | |
 | elara            | Notebook Kirsten Home (macOS) |
@@ -14,7 +14,7 @@
 | lysithe          | |
 | carme            | |
 | ananke           | Notebook Kirsten Work (Windows) |
-| leda             | Raspberry Pi (Ubuntu) |
+| leda             | Lab (Raspbian) |
 | thebe            | |
 | adrastea         | |
 | metis            | |
@@ -27,7 +27,7 @@
 | kalyke           | |
 | iocaste          | |
 | erinome          | |
-| isonoe           | Lab (macOS) |
+| isonoe           | Lab (Windows) |
 | praxidike        | |
 | autonoe          | |
 | thyone           | |
@@ -38,7 +38,7 @@
 | euporie          | |
 | orthosie         | |
 | sponde           | |
-| kale             | Lawn Mower (Ubuntu) |
+| kale             | Lawn Mower (Raspbian) |
 | pasithee         | |
 | hegemone         | |
 | mneme            | |

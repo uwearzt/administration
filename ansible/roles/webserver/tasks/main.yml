@@ -11,11 +11,12 @@
         repo: deb [trusted=yes] https://apt.fury.io/caddy/ /
         filename: caddy-fury
         state: present
-    - name: install caddy
+    - name: install caddy + goaccess
       apt: name={{ packages }} state=present
       vars:
         packages:
           - caddy
+          - goaccess
     - name: install caddy service
       service:
         name: caddy

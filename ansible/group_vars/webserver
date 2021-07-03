@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2021 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -7,12 +7,12 @@ websites:
   - url: "uwe-arzt.de"
     dir: "site-uwe-arzt"
     email: "admin@uwe-arzt.de"
-  - url: "ganymed-it.de"
-    dir: "site-ganymed-it"
-    email: "admin@ganymed-it.de"
   - url: "kirsten-klomp.de"
     dir: "site-kirsten-klomp"
     email: "admin@kirsten-klomp.de"
+  - url: "ganymed-it.de"
+    dir: "site-ganymed-it"
+    email: "admin@ganymed-it.de"
   - url: "robots.de"
     forward: "https://uwe-arzt.de"
   - url: "uwearzt.de"
