@@ -5,7 +5,7 @@
 
 ---
 - name: Development machines
-  hosts: isonoe
+  hosts: sinope
   roles:
     - network
     - base-cmd

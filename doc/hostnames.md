@@ -38,9 +38,9 @@
 | euporie          | |
 | orthosie         | |
 | sponde           | |
-| kale             | Lawn Mower (Raspbian) |
+| kale             | Lawn Mower |
 | pasithee         | |
-| hegemone         | |
+| hegemone         | Weed control Robot |
 | mneme            | |
 | aoede            | |
 | thelxinoe        | |

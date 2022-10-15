@@ -6,10 +6,22 @@
 
 - name: install caddy
   block:
+    - name: register lsb release
+      command: lsb_release -cs
+      register: lsb_release
     - name: add caddy repo
       apt_repository:
         repo: deb [trusted=yes] https://apt.fury.io/caddy/ /
         filename: caddy-fury
+        state: present
+    - name: goaccess key
+      apt_key: 
+        url: https://deb.goaccess.io/gnugpg.key
+        state: present
+    - name: add goaccess repo
+      apt_repository:
+        repo: deb http://deb.goaccess.io/ {{ lsb_release.stdout }} main
+        filename: goaccess
         state: present
     - name: install caddy + goaccess
       apt: name={{ packages }} state=present
