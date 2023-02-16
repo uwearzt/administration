@@ -1,18 +1,18 @@
 # ------------------------------------------------------------------------------
-# Copyright 2020 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2022 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
 ---
-- name: apt install docker packages
+- name: apt install kvm packages
   block:
     - name: apt install packages
       apt: name={{ packages }} state=present
       vars:
         packages:
-          - docker.io
-          - docker-compose
           - bridge-utils
+          - qemu
+          - virtinst
 
   when: ansible_os_family == "Debian"
   become: true

@@ -7,9 +7,10 @@
 - name: Development machines
   hosts: sinope
   roles:
-    - network
-    - base-cmd
-    - base-gui
-    - devel
-    - ros2
-    - rust
+#    - network
+    - base-cli
+#    - base-gui
+#    - devel
+    - ros-cli
+    - ros-gui
+#    - rust

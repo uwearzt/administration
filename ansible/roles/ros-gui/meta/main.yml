@@ -3,6 +3,5 @@
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-interfaces:
-  eth0:
-    enabled: true
+---
+dependencies: [ros-cli]

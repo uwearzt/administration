@@ -1,0 +1,32 @@
+# ------------------------------------------------------------------------------
+# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
+# SPDX-License-Identifier: Apache-2.0
+# ------------------------------------------------------------------------------
+
+---
+- name: ros2 gui
+  block:
+    - name: add gazebo repo key
+      apt_key:
+        url: http://packages.osrfoundation.org/gazebo.key
+        state: present
+
+    - name: add gazebo repo
+      apt_repository:
+        repo: deb [arch=amd64,arm64] http://packages.osrfoundation.org/gazebo/ubuntu-stable {{ ansible_distribution_release }} main
+        filename: ros2
+        state: present
+
+    - name: install ros2 full desktop
+      apt: name={{ packages }} state=present update_cache=yes
+      vars:
+        packages:
+          - ros-humble-desktop
+    - name: install ignition gazebo
+      apt: name={{ packages }} state=present update_cache=yes
+      vars:
+        packages:
+          - gz-garden
+
+  when: ansible_os_family == "Debian"
+  become: true

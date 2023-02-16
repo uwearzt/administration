@@ -7,4 +7,3 @@ interfaces:
   eth0:
     enabled: true
     mac: "f4:0f:24:36:e8:43"
-    ipv4: "192.168.20.51"

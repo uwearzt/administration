@@ -10,27 +10,23 @@
       apt: name={{ packages }} state=present
       vars:
         packages:
-          - aptitude
           - lsof
           - htop
-          - zsh
+          - fish
           - git
-          - vim
           - rsync
           - sudo
           - curl
           - apt-transport-https
-          - screen
-          - mosh
-          - pass
           - needrestart
           - tmux
           - ripgrep
-          - minicom
+          - neovim
+          - python3-pip
     - name: change shell
       user:
         name: "{{ ansible_user_id }}"
-        shell: /usr/bin/zsh
+        shell: /usr/bin/fish
 
   when: ansible_os_family == "Debian"
   become: true
@@ -48,46 +44,38 @@
         packages:
           - lsof
           - htop
+          - fish
           - git
-          - vim
           - rsync
           - curl
-          - screen
-          - mosh
           - tmux
           - ripgrep
-          - minicom
+          - neovim
     - name: change shell
       user:
         name: "{{ ansible_user_id }}"
-        shell: /bin/zsh
+        shell: /opt/homebrew/bin/fish
       become: true
 
   when: ansible_os_family == "Darwin"
+
+# ------------------------------------------------------------------------------
+- name: Install pip packages
+  ansible.builtin.pip:
+    name:
+      - pynvim
+
+# ------------------------------------------------------------------------------
+- name: copy config.fish
+  copy:
+    src: files/config.fish
+    dest: .config/fish/
 
 # ------------------------------------------------------------------------------
 - name: copy gitconfig
   copy:
     src: files/gitconfig
     dest: .gitconfig
-
-# ------------------------------------------------------------------------------
-- name: install oh-my-zsh
-  git:
-    repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: .oh-my-zsh
-- name: copy zshrc
-  copy:
-    src: zshrc
-    dest: .zshrc
-- name: copy zshenv
-  copy:
-    src: zshenv
-    dest: .zshenv
-- name: copy zsh theme
-  copy:
-    src: uwe.zsh-theme
-    dest: .oh-my-zsh/themes/
 
 # ------------------------------------------------------------------------------
 - name: copy tmux settings

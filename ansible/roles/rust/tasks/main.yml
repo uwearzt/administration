@@ -14,29 +14,17 @@
   when: not rustup.stat.exists
 
 # ------------------------------------------------------------------------------
-- name: install nightly
-  command: rustup toolchain install {{ item }}
-  with_items:
-    - nightly
-  ignore_errors: yes
-# ------------------------------------------------------------------------------
-- name: default nightly
-  command: rustup default nightly
-  ignore_errors: yes
-
-# ------------------------------------------------------------------------------
 - name: add additional rust components
   block:
     - name: add rust components
       command: rustup component add {{ item }}
       with_items:
-        - rustfmt-preview
+        - rls
 
     - name: add crates
       command: cargo install {{ item }}
       with_items:
         - cargo-update
-        - cargo-script
         - cargo-audit
       ignore_errors: yes
   when: ansible_architecture != "aarch64"

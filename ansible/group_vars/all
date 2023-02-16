@@ -4,7 +4,7 @@
 # ------------------------------------------------------------------------------
 
 network:
-  domain: uwearzt.de
+  domain: lan
 
 users:
   - {name: uwe, pubkey: id_private.pub}
@@ -20,16 +20,16 @@ networks:
     ipv4: 192.168.20.0/24
   }
   - {
-    name: guest,
-    5ghz: guest,
-    2ghz: guest_legacy,
-    ipv4: 192.168.22.0/24
-  }
-  - {
     name: kirstenpraxis,
     5ghz: kirstenpraxis,
     2ghz: kirstenpraxis_legacy,
     ipv4: 192.168.30.0/24
+  }
+  - {
+    name: guest,
+    5ghz: guest,
+    2ghz: guest_legacy,
+    ipv4: 192.168.40.0/24
   }
   - {
     name: dmz,

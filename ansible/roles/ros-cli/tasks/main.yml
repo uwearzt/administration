@@ -13,13 +13,10 @@
           - gnupg2
           - lsb-release
           - python3-argcomplete
+
     - name: add ros2 repo key
       apt_key:
         url: http://repo.ros2.org/repos.key
-        state: present
-    - name: add gazebo repo key
-      apt_key:
-        url: http://packages.osrfoundation.org/gazebo.key
         state: present
 
     - name: add ros2 repo
@@ -27,22 +24,12 @@
         repo: deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu {{ ansible_distribution_release }} main
         filename: ros2
         state: present
-    - name: add gazebo repo
-      apt_repository:
-        repo: deb [arch=amd64,arm64] http://packages.osrfoundation.org/gazebo/ubuntu-stable {{ ansible_distribution_release }} main
-        filename: ros2
-        state: present
 
-    - name: install ros2 full desktop
+    - name: install ros2 base
       apt: name={{ packages }} state=present update_cache=yes
       vars:
         packages:
-          - ros-galactic-desktop
-    - name: install ignition gazebo
-      apt: name={{ packages }} state=present update_cache=yes
-      vars:
-        packages:
-          - libignition-gazebo5-dev
+          - ros-humble-ros-base
 
   when: ansible_os_family == "Debian"
   become: true

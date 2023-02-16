@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018-2020 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2023 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
@@ -8,13 +8,13 @@
 # ----------------------------------------------------
 [devel]
 ganymed
-leda
 
 [rosdevel]
 sinope
 
 [server]
 arche
+testserver
 
 [printer]
 dl2350
@@ -27,7 +27,11 @@ apgarden
 [firewall]
 io
 
-[other]
+[robot]
+mneme
+
+[kvm]
+kvm-arche
 
 [webserver]
 hetzner01
@@ -44,6 +48,7 @@ leda
 
 [macos]
 ganymed
+elara
 
 [ios]
 c2960l

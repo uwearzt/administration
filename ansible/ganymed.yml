@@ -1,9 +1,16 @@
 # ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
+# Copyright 2018-2023 Uwe Arzt, mail@uwe-arzt.de
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------------
 
-interfaces:
-  eth0:
-    enabled: true
-    ipv4: ""
+---
+- name: MacBook
+  hosts: ganymed
+  roles:
+    - network
+    - base-cli
+#    - base-gui
+#    - devel
+#    - ros-cli
+#    - ros-gui
+#    - rust
