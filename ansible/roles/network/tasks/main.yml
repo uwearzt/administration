@@ -1,9 +1,0 @@
-# ------------------------------------------------------------------------------
-# Copyright 2018 Uwe Arzt, mail@uwe-arzt.de
-# SPDX-License-Identifier: Apache-2.0
-# ------------------------------------------------------------------------------
-
----
-- name: update /etc/hosts file
-  become: true
-  action: template src=files/hosts.j2 dest=/etc/hosts
